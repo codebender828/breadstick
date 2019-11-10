@@ -13,6 +13,8 @@
     "vue": "^2.6.10"
   },
   "devDependencies": {
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
     "@vue/cli-plugin-babel": "^4.0.0",
     "@vue/cli-plugin-eslint": "^4.0.0",
     "@vue/cli-plugin-unit-jest": "^4.0.0",
@@ -22,6 +24,8 @@
     "babel-eslint": "^10.0.3",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
+    "husky": "^3.0.9",
+    "lint-staged": "^9.4.2",
     "vue-template-compiler": "^2.6.10"
   }
 }
