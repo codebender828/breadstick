@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "core-js": "^3.3.2",
-    "vue": "^2.6.10"
+    "vue": "^2.6.10",
+    "vue-motion": "^0.2.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",

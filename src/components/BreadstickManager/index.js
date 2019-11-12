@@ -1,0 +1,182 @@
+import Message from '../Message'
+
+const positions = {
+  top: [],
+  'top-left': [],
+  'top-right': [],
+  'bottom-left': [],
+  bottom: [],
+  'bottom-right': []
+}
+
+/**
+ * Breadstick component
+ */
+const BreadstickManager = {
+  name: 'BreadstickManager',
+  data () {
+    return {
+      idCounter: 0,
+      positions
+    }
+  },
+  props: {
+    notify: Function,
+    default: () => null
+  },
+  created () {
+    this.notify(this._notify, this.closeAll)
+  },
+  methods: {
+    /**
+     * @description Creates toast state for single toast notification
+     * @param {Object|Vue.Component|String} message
+     * @param {Object} options
+     * @returns {Object} Toast state object
+     */
+    createToastState (message, options) {
+      const id = ++this.idCounter
+
+      // a bit messy, but object.position returns a number because
+      // it's a method argument.
+      const position =
+        options.hasOwnProperty('position') && typeof options.position === 'string'
+          ? options.position
+          : 'top'
+
+      return {
+        id,
+        message,
+        position,
+        showing: true,
+        duration:
+          typeof options.duration === 'undefined' ? 5000 : options.duration,
+        onRequestRemove: () => this.removeToast(String(id), position),
+        type: options.type
+      }
+    },
+
+    /**
+     * @description Shows notification
+     * @param {Object|Vue.Component|String} message
+     * @param {Object} options
+     */
+    _notify (message, options) {
+      console.log('Breadstick manager', { message })
+      const toast = this.createToastState(message, options)
+      const { position } = toast
+
+      // prepend the toast for toasts positioned at the top of
+      // the screen, otherwise append it.
+      const isTop = position.includes('top')
+      this.positions[position] = this.positions[position] === isTop
+        ? [toast, ...this.positions[position]]
+        : [...this.positions[position], toast]
+    },
+
+    /**
+     * @description Close all toast components
+     */
+    closeAll () {
+      Object.keys(this.positions).forEach((pos) => {
+        const position = this.positions[pos]
+        position.forEach((toast) => {
+          this.closeToast(toast.id, pos)
+        })
+      })
+    },
+
+    /**
+     * @description Close single toast component
+     * @param {String} id
+     * @param {String} position
+     */
+    closeToast (id, position) {
+      this.positions[position] = this.positions[position].map(toast => {
+        if (toast.id !== id) return toast
+        return {
+          ...toast,
+          requestClose: true
+        }
+      })
+      return this.positions[position]
+    },
+
+    /**
+     * @description Remove toast from position list
+     * @param {String} id
+     * @param {String} position
+     */
+    removeToast (id, position) {
+      this.positions[position] = this.positions[position].filter(toast => toast.id !== id)
+      return this.positions[position]
+    },
+
+    /**
+    * @description Compute styles for  toast component
+    * @param {String} position
+    */
+    getStyle (position) {
+      let style = {
+        maxWidth: '560px',
+        position: 'fixed',
+        zIndex: 5500,
+        pointerEvents: 'none'
+      }
+
+      if (position === 'top' || position === 'bottom') {
+        style.margin = '0 auto'
+        style.textAlign = 'center'
+      }
+
+      if (position.includes('top')) {
+        style.top = 0
+      }
+
+      if (position.includes('bottom')) {
+        style.bottom = 0
+      }
+
+      if (!position.includes('left')) {
+        style.right = 0
+      }
+
+      if (!position.includes('right')) {
+        style.left = 0
+      }
+      return style
+    }
+
+    /**
+     * @description Render children breadsticks
+     */
+  },
+  render (h) {
+    return <span>
+      {Object.keys(this.positions).map(position => {
+        const pos = position
+        const toasts = this.positions[pos]
+        return (
+          <span
+            key={position}
+            className={'Toaster__manager-' + pos}
+            style={this.getStyle(pos)}
+          >
+            {toasts.map((toast) => {
+              return h(Message, {
+                props: {
+                  position: pos,
+                  key: toast.id,
+                  message: toast.message,
+                  ...toast
+                }
+              }, this.$slots.default)
+            })}
+          </span>
+        )
+      })}
+    </span>
+  }
+}
+
+export default BreadstickManager

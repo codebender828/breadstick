@@ -1,13 +1,30 @@
 <template>
   <div id="app">
-    <h1>Breadstick</h1>
+    <h1>My App</h1>
   </div>
 </template>
 
 <script>
+import Alert from './components/Alert'
+import toast from './'
 
 export default {
-  name: 'app'
+  name: 'app',
+  mounted () {
+    const showAlert = () => alert('Hello!')
+    toast.notify((h, { onClose = true }) => {
+      return h(Alert, {
+        on: {
+          click: showAlert
+        }
+      }, 'Another Alert message')
+    })
+  },
+  methods: {
+    showAlert () {
+      console.log('alert component')
+    }
+  }
 }
 </script>
 
