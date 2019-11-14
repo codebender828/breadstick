@@ -1,4 +1,4 @@
-import Alert from '../Alert'
+import { Alert } from '../Alert/'
 
 /**
  * Message component
@@ -26,14 +26,8 @@ const Message = {
       default: 30000
     }
   },
-  data () {
-    return {
-      localShow: true
-    }
-  },
   methods: {
     close () {
-      this.localShow = false
       this.$emit('remove', { id: this.id, position: this.position })
     },
     onMouseEnter () {
@@ -46,7 +40,7 @@ const Message = {
       // The returned message is a string
       if (typeof this.message === 'string') {
         return (
-          <Alert id={this.id} title={this.message} onClose={this.close}>
+          <Alert id={this.id} title={this.message} close={this.close}>
             {this.message}
           </Alert>
         )

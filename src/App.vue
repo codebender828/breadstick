@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Alert from './components/Alert'
+// import Alert from './components/Alert'
 import toast from './'
 
 export default {
@@ -18,28 +18,39 @@ export default {
   mounted () {
     // let counter = this.counter
     setInterval(() => {
-    // using a render callback
-      toast.notify(({ onClose }) => (
-        <Alert>
-          <div onClick={onClose}>
-            Alert with JSX
-          </div>
-        </Alert>
-      ), {
-        position: 'bottom-left'
+      // toast.notify(({ onClose }) => (
+      //   <Alert>
+      //     <div class="alert" onClick={onClose}>
+      //       Alert with JSX
+      //     </div>
+      //   </Alert>
+      // ), {
+      //   position: 'top-right'
+      // })
+      toast.notify('🌮 Tacos are delicious', {
+        onClose: Function
       })
-    }, 1000)
+    }, 3000)
   }
 }
 </script>
 
-<style>
+<style lang="scss">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #2c4250;
   margin-top: 60px;
+}
+
+.alert {
+  padding: 1rem;
+  background: rgb(162, 217, 253);
+  color: #262626;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-weight: 400;
+  margin-bottom: 5px;
 }
 </style>

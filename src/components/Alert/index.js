@@ -1,20 +1,22 @@
+import './styles.css'
+
 export const Alert = {
   name: 'Alert',
   props: {
-    id: String,
+    id: [String, Number],
     title: String,
-    onClose: Function
+    close: Function
   },
   render (h) {
     return (
-      <div id={this.id} className="Toaster__alert">
+      <div id={this.id} class="Breadstick__alert">
         {typeof title === 'string' ? (
-          <div className="Toaster__alert_text">{this.title}</div>
+          <div class="Breadstick__alert_text">{this.title}</div>
         ) : (
           this.title
         )}
 
-        {this.onClose && <Close onClose={this.onClose} />}
+        <Close close={this.close} />
       </div>
     )
   }
@@ -24,18 +26,18 @@ export const Alert = {
 export const Close = {
   name: 'Close',
   props: {
-    onClose: {
+    close: {
       type: Function,
       default: () => null
     }
   },
-  render (h) {
+  render () {
     return (
       <button
-        className="Toaster__alert_close"
+        class="Breadstick__alert_close"
         type="button"
         aria-label="Close"
-        onClick={this.onClose}
+        onClick={this.close}
       >
         <span aria-hidden="true">×</span>
       </button>

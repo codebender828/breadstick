@@ -4,7 +4,7 @@
 const Alert = {
   name: 'Alert',
   render (h) {
-    return h('h2', this.$slots.default)
+    return h('div', this.$slots.default)
   }
 }
 
