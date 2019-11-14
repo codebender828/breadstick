@@ -23,18 +23,33 @@ const Message = {
     },
     duration: {
       type: Number,
-      default: 30000
+      default: 5000
     }
+  },
+  data () {
+    return {
+      timeout: undefined
+    }
+  },
+  mounted () {
+    this.createTimeout()
   },
   methods: {
     close () {
       this.$emit('remove', { id: this.id, position: this.position })
+      clearTimeout(this.timeout)
     },
     onMouseEnter () {
-      setTimeout(null)
+      if (this.timeout) {
+        clearTimeout(this.timeout)
+      }
     },
     onMouseLeave () {
-      setTimeout(this.duration)
+      this.createTimeout()
+    },
+    createTimeout () {
+      this.timeout = setTimeout(this.close, this.duration)
+      return this.timeout
     },
     renderMessage (h) {
       // The returned message is a string
@@ -64,14 +79,20 @@ const Message = {
     }
   },
   render (h) {
-    return (
-      <div
-        onMouseEnter={this.onMouseEnter}
-        onMouseLeave={this.onMouseLeave}
-      >
-        {this.renderMessage(h)}
-      </div>
-    )
+    return h('div', {
+      on: {
+        'mouseenter': this.onMouseEnter,
+        'mouseleave': this.onMouseLeave
+      }
+    }, [this.renderMessage(h)])
+    // return (
+    //   <div
+    //     MouseEnter={this.onMouseEnter}
+    //     onMouseLeave={this.onMouseLeave}
+    //   >
+    //     {this.renderMessage(h)}
+    //   </div>
+    // )
   }
 }
 export default Message

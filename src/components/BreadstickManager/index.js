@@ -40,12 +40,14 @@ const animations = {
     var height = el.clientHeight
     return {
       height: [height, 0],
-      opacity: [1, 0]
+      opacity: [1, 0],
+      scale: [1, 0.9]
     }
   },
   leave: {
     height: 0,
-    opacity: [0, 1]
+    opacity: [0, 1],
+    scale: [0.9, 1]
   }
 }
 
@@ -235,7 +237,7 @@ const BreadstickManager = {
               onEnter={this.enter}
               onLeave={this.leave}
               key={position}
-              className={'Toaster__manager-' + pos}
+              className={'Breadstick__manager-' + pos}
               ref={`BreadstickManager_${pos}`}
               style={{
                 ...this.getStyle(pos)

@@ -1,4 +1,11 @@
 import Toaster from './components/Breadstick'
-const toaster = new Toaster()
+import Breadstick from './plugin'
 
-export default toaster
+const breadstick = new Toaster()
+const useBreadstick = () => breadstick
+
+export {
+  useBreadstick
+}
+
+export default Breadstick

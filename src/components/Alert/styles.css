@@ -5,6 +5,7 @@
   max-width: 650px;
   position: relative;
   border-radius: 0.4rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   display: flex;
   padding: 1rem;
   padding-right: 48px;
@@ -15,10 +16,6 @@
 
 .Breadstick__alert_text {
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  color: rgb(33, 37, 41);
   -webkit-font-smoothing: antialiased;
   font-weight: 500;
   line-height: 1.5;

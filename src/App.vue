@@ -5,8 +5,9 @@
 </template>
 
 <script>
-// import Alert from './components/Alert'
-import toast from './'
+// import { useBreadstick } from './'
+
+// const breadstick = useBreadstick()
 
 export default {
   name: 'app',
@@ -16,18 +17,17 @@ export default {
     }
   },
   mounted () {
-    // let counter = this.counter
     setInterval(() => {
-      // toast.notify(({ onClose }) => (
-      //   <Alert>
-      //     <div class="alert" onClick={onClose}>
-      //       Alert with JSX
-      //     </div>
-      //   </Alert>
-      // ), {
-      //   position: 'top-right'
-      // })
-      toast.notify('🌮 Tacos are delicious', {
+    // breadstick.notify(({ onClose }) => (
+    //   <Alert>
+    //     <div class="alert" onClick={onClose}>
+    //       Alert with JSX
+    //     </div>
+    //   </Alert>
+    // ), {
+    //   position: 'top-right'
+    // })
+      this.$breadstick.notify('🌮 Tacos are delicious', {
         onClose: Function
       })
     }, 3000)
