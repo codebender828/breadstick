@@ -5,10 +5,6 @@
 </template>
 
 <script>
-// import { useBreadstick } from './'
-
-// const breadstick = useBreadstick()
-
 export default {
   name: 'app',
   data () {

@@ -1,6 +1,5 @@
 import velocity from 'velocity-animate'
 import Message from '../Message'
-import parseNumericValue from '../../utils/parser'
 
 const positions = {
   top: [],
@@ -68,11 +67,6 @@ const BreadstickManager = {
   },
   created () {
     this.notify(this._notify, this.closeAll)
-  },
-  computed: {
-    actualWidth () {
-      return parseNumericValue(300)
-    }
   },
   methods: {
     /**
