@@ -22,7 +22,6 @@ export const split = (value) => {
  *   y - top, bottom
  */
 export const listToDirection = (value) => {
-  console.log({ value })
   if (typeof value === 'string') {
     value = split(value)
   }
@@ -39,6 +38,5 @@ export const listToDirection = (value) => {
       if (direction.includes(v)) x = v
     })
   })
-  console.log({ x, y })
   return { x, y }
 }

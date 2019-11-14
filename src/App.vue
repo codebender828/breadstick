@@ -25,13 +25,10 @@ export default {
             Alert with JSX
           </div>
         </Alert>
-      ))
-    }, 3000)
-  },
-  methods: {
-    showAlert () {
-      console.log('alert component')
-    }
+      ), {
+        position: 'bottom-left'
+      })
+    }, 1000)
   }
 }
 </script>

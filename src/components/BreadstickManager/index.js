@@ -1,6 +1,5 @@
 import velocity from 'velocity-animate'
 import Message from '../Message'
-// import { listToDirection } from '../../utils/styles'
 import parseNumericValue from '../../utils/parser'
 
 const positions = {
@@ -39,7 +38,6 @@ const computeBreadstickStyle = (position) => {
 const animations = {
   enter: (el) => {
     var height = el.clientHeight
-    console.log({ height })
     return {
       height: [height, 0],
       opacity: [1, 0]
@@ -114,10 +112,8 @@ const BreadstickManager = {
       // prepend the toast for toasts positioned at the top of
       // the screen, otherwise append it.
       const isTop = position.includes('top')
-      console.log({ isTop })
-      this.positions[position] = this.positions[position] === isTop
-        ? [toast, ...this.positions[position]]
-        : [...this.positions[position], toast]
+      isTop ? this.positions[position].unshift(toast)
+        : this.positions[position].push(toast)
     },
 
     /**
@@ -154,7 +150,6 @@ const BreadstickManager = {
      * @param {String} position
      */
     removeToast (id, position) {
-      console.log('Removing Toast')
       this.positions[position] = this.positions[position].filter(toast => toast.id !== id)
       return this.positions[position]
     },
@@ -168,7 +163,7 @@ const BreadstickManager = {
         maxWidth: '560px',
         position: 'fixed',
         zIndex: 5500
-        // ?! Not sure why this is set to true, but wil confirm today
+        // ?! Not sure why this is set to true, but will confirm today
         // pointerEvents: 'none'
       }
 
