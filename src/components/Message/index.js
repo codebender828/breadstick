@@ -1,8 +1,8 @@
-// import Vue from 'vue'
-import { isVueComponent } from '../../utils/validators'
-import { Alert } from '../Alert'
-// import { Motion } from 'vue-motion'
+import { Alert } from '../Alert/'
 
+/**
+ * Message component
+ */
 const Message = {
   name: 'Message',
   props: {
@@ -11,15 +11,11 @@ const Message = {
       default: null
     },
     message: {
-      type: [String, Function],
+      type: [String, Function, Object],
       default: null
     },
     position: {
       type: String
-    },
-    onRequestRemove: {
-      type: Function,
-      default: () => null
     },
     requestClose: {
       type: Boolean,
@@ -27,59 +23,76 @@ const Message = {
     },
     duration: {
       type: Number,
-      default: 30000
+      default: 5000
     }
   },
   data () {
     return {
-      localShow: false
+      timeout: undefined
     }
+  },
+  mounted () {
+    this.createTimeout()
   },
   methods: {
     close () {
-      this.localShow = false
+      this.$emit('remove', { id: this.id, position: this.position })
+      clearTimeout(this.timeout)
+    },
+    onMouseEnter () {
+      if (this.timeout) {
+        clearTimeout(this.timeout)
+      }
+    },
+    onMouseLeave () {
+      this.createTimeout()
+    },
+    createTimeout () {
+      this.timeout = setTimeout(this.close, this.duration)
+      return this.timeout
     },
     renderMessage (h) {
-      if (typeof this.message === 'string' || isVueComponent(this.message)) {
-        return <Alert id={this.id} title={this.message} onClose={this.close} />
+      // The returned message is a string
+      if (typeof this.message === 'string') {
+        return (
+          <Alert id={this.id} title={this.message} close={this.close}>
+            {this.message}
+          </Alert>
+        )
       }
+
+      // The returned message is a function with Vue's render function callback
       if (typeof this.message === 'function') {
-        const message = this.message(h, {
+        const message = this.message({
+          h,
           id: this.id,
           onClose: this.close
         })
         return message
       }
 
+      // The returned message is a component VNode
+      if (this.message.constructor && this.message.constructor.name === 'VNode') {
+        return this.message
+      }
       return null
     }
   },
   render (h) {
-    // const self = this
-    return this.renderMessage(h)
-    // return h(Motion, {
-    //   props: {
-    //     value: 200,
-    //     tag: 'div'
-    //   },
-    //   scopedSlots: {
-    //     default: function (props) {
-    //       return h('span', {
-    //         style: {
-    //           transform: `translateX(${props.value}px)`
-    //         }
-    //       }, [self.renderMessage()])
-    //     }
-    //   }
-    // })
+    return h('div', {
+      on: {
+        'mouseenter': this.onMouseEnter,
+        'mouseleave': this.onMouseLeave
+      }
+    }, [this.renderMessage(h)])
     // return (
-    //   <Motion value={200} tag="div">
-    //     <span slot-scope={props} style={{ transform: `translateX(${props.value}px)` }}>
-    //       {this.renderMessage(h)}
-    //     </span>
-    //   </Motion>
+    //   <div
+    //     MouseEnter={this.onMouseEnter}
+    //     onMouseLeave={this.onMouseLeave}
+    //   >
+    //     {this.renderMessage(h)}
+    //   </div>
     // )
   }
 }
-
 export default Message

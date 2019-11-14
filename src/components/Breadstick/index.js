@@ -41,18 +41,6 @@ export const Breadstick = {
   }
 }
 
-export function useBreadstick (component) {
-  createPortal()
-  return new Vue({
-    el: `#${PORTAL_ID}`,
-    render (h) {
-      return h(Breadstick, {}, [
-        component(h)
-      ])
-    }
-  }).$mount()
-}
-
 function createBreadstick (boundNotify) {
   new Vue({
     el: `#${PORTAL_ID}`,
@@ -86,6 +74,11 @@ class Toaster {
     this.removeAll = removeAll
   };
 
+  /**
+   * @description Calls notification method
+   * @param {Function|String} Message object
+   * @param {Object} options
+   */
   notify = (message, options = {}) => {
     if (this.createNotification) {
       this.createNotification(message, options)

@@ -1,3 +1,4 @@
+import velocity from 'velocity-animate'
 import Message from '../Message'
 
 const positions = {
@@ -7,6 +8,46 @@ const positions = {
   'bottom-left': [],
   bottom: [],
   'bottom-right': []
+}
+
+/**
+ * @description Compute styles for specific position
+ * @param {String} position
+ * @returns {Object} Styles object
+ */
+const computeBreadstickStyle = (position) => {
+  let style = {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center'
+  }
+
+  if (position.includes('right')) {
+    style.alignItems = 'flex-end'
+  } else if (position.includes('left')) {
+    style.alignItems = 'flex-start'
+  }
+
+  return style
+}
+
+/**
+ * Breadstick Animations
+ */
+const animations = {
+  enter: (el) => {
+    var height = el.clientHeight
+    return {
+      height: [height, 0],
+      opacity: [1, 0],
+      scale: [1, 0.9]
+    }
+  },
+  leave: {
+    height: 0,
+    opacity: [0, 1],
+    scale: [0.9, 1]
+  }
 }
 
 /**
@@ -36,7 +77,6 @@ const BreadstickManager = {
      */
     createToastState (message, options) {
       const id = ++this.idCounter
-
       // a bit messy, but object.position returns a number because
       // it's a method argument.
       const position =
@@ -62,16 +102,14 @@ const BreadstickManager = {
      * @param {Object} options
      */
     _notify (message, options) {
-      console.log('Breadstick manager', { message })
       const toast = this.createToastState(message, options)
       const { position } = toast
 
       // prepend the toast for toasts positioned at the top of
       // the screen, otherwise append it.
       const isTop = position.includes('top')
-      this.positions[position] = this.positions[position] === isTop
-        ? [toast, ...this.positions[position]]
-        : [...this.positions[position], toast]
+      isTop ? this.positions[position].unshift(toast)
+        : this.positions[position].push(toast)
     },
 
     /**
@@ -120,8 +158,9 @@ const BreadstickManager = {
       let style = {
         maxWidth: '560px',
         position: 'fixed',
-        zIndex: 5500,
-        pointerEvents: 'none'
+        zIndex: 5500
+        // ?! Not sure why this is set to true, but will confirm today
+        // pointerEvents: 'none'
       }
 
       if (position === 'top' || position === 'bottom') {
@@ -145,37 +184,83 @@ const BreadstickManager = {
         style.left = 0
       }
       return style
-    }
-
+    },
     /**
-     * @description Render children breadsticks
+     * @description Get animation for transition
+     * @param {String} index Type of animation phase
+     * @param {HTMLElement} el Element
      */
+    getAnimation (index, el) {
+      const animation = animations[index]
+      return typeof animation === 'function'
+        ? animation.call(this, el)
+        : animation
+    },
+    /**
+     * @description Calls enter animation
+     * @param {{el: HTMLElement, complete: Function}} el
+     */
+    enter (el, complete) {
+      const animation = this.getAnimation('enter', el)
+      velocity(el, animation, {
+        duration: this.speed,
+        complete
+      })
+    },
+    /**
+     * @description Calls leave animation
+     * @param {{el: HTMLElement, complete: Function}} el
+     */
+    leave (el, complete) {
+      let animation = this.getAnimation('leave', el)
+      velocity(el, animation, {
+        duration: this.speed,
+        complete
+      })
+    }
   },
   render (h) {
-    return <span>
-      {Object.keys(this.positions).map(position => {
-        const pos = position
-        const toasts = this.positions[pos]
-        return (
-          <span
-            key={position}
-            className={'Toaster__manager-' + pos}
-            style={this.getStyle(pos)}
-          >
-            {toasts.map((toast) => {
-              return h(Message, {
-                props: {
-                  position: pos,
-                  key: toast.id,
-                  message: toast.message,
-                  ...toast
-                }
-              }, this.$slots.default)
-            })}
-          </span>
-        )
-      })}
-    </span>
+    return (
+      <span>
+        {Object.keys(this.positions).map(position => {
+          const pos = position
+          const toasts = this.positions[pos]
+          return (
+            <TransitionGroup
+              css={false}
+              onEnter={this.enter}
+              onLeave={this.leave}
+              key={position}
+              className={'Breadstick__manager-' + pos}
+              ref={`BreadstickManager_${pos}`}
+              style={{
+                ...this.getStyle(pos)
+              }}
+            >
+              {toasts.map((toast) => {
+                return h(Message, {
+                  props: {
+                    position: pos,
+                    key: toast.id,
+                    message: toast.message,
+                    ...toast
+                  },
+                  style: {
+                    ...computeBreadstickStyle(pos)
+                  },
+                  on: {
+                    remove: ({ id, position }) => {
+                      this.removeToast(id, position)
+                    }
+                  },
+                  key: toast.id
+                }, this.$slots.default)
+              })}
+            </TransitionGroup>
+          )
+        })}
+      </span>
+    )
   }
 }
 

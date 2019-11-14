@@ -1,11 +1,44 @@
 <br />
-<h1 align="center">🥖 Breadstick</h1>
-<h4 align="center">A simple but flexible implementation of toast style notifications for Vue.js</h4>
+<center>
+  <image align="center" src="./assets/480w/breadstick-logo.png" width="250px">
+  <h1 align="center">Breadstick</h1>
+  <h4 align="center">A simple but flexible implementation of toast style notifications for Vue.js</h4>
+</center>
 
+- Inspired by React's [toasted-notes](https://github.com/bmcmahen/toasted-notes)
 ### 🌟 Features
 - **An imperative API.** This means that you don't need to set component state or render elements to trigger notifications. Instead, just call a function. This makes it very user friendly for component library authors.
 - **Render whatever you want.** Utilize the render callback to create entirely custom notifications.
 - **Functional default styles.** Import the provided css for some nice styling defaults or write your own styles.
+
+## ⚡️ Installation
+```bash
+yarn install breadstick
+or
+npm install breadstick --save
+```
+You can then register `breadstick` as a plugin.
+
+```js
+import Vue from 'vue'
+import Breadstick from 'breadstick'
+
+Vue.use(Breadstick)
+
+// You can now access the `breadstick` instance
+// via `this.$breadstick` in your application.
+```
+
+You can also use breadstick's `useBreadstick` API without the plugin architecture. This is useful for building UI component libraries.
+
+```js
+import { useBreadstick } from 'breadstick'
+
+const breadstick = useBreadstick()
+
+// You can now access the `breadstick` instance
+// via `breadstick` in your application.
+```
 
 ### 🎛 How it works
 Simply import and create a new `breadstick` instance and call the `notify` method. Breadstick will expose a `render` function API that you can use to render custom notifications inside of breadstick. Alternatively you can also use plain JSX to call the notify method.
@@ -15,7 +48,18 @@ Rendering custom components inside of breadstick gives component library authors
 ### 🤖Examples
 Breadstick's API only works with Vue's render function or JSX API to render custom components inside of notifications.
 
-#### 🌮 With Render function
+#### 🍊 With basic string messsage
+```js
+this.$breadstick.notify('🥞 Show me the pancakes')
+
+// With options:
+this.$breadstick.notify('🥞 Show me the pancakes', {
+  position: 'top' || 'bottom' || 'top-left' || 'top-right' || 'bottom-left' || 'bottom-right',
+  duration: 8000 // Default is 5000
+})
+```
+
+#### 🌮 With Vue's `render` function callback
 ```js
 import Alert from './components/Alert'
 import breadstick from 'breadstick'
@@ -23,12 +67,11 @@ import breadstick from 'breadstick'
 export default {
   name: 'app',
   mounted () {
-    const showAlert = () => alert('Hello!')
     // Breadstick renders your custom `Alert` component
-    breadstick.notify((h, { onClose = true }) => {
+    this.$breadstick.notify(({ h, onClose }) => {
       return h(Alert, {
         on: {
-          click: showAlert
+          click: onClose
         }
       }, 'A render function Alert notification')
     })
@@ -36,7 +79,7 @@ export default {
 }
 ```
 
-#### With JSX
+#### 🚚 With JSX
 ```jsx
 import Alert from './components/Alert'
 import breadstick from 'breadstick'
@@ -46,9 +89,9 @@ export default {
   mounted () {
     const showAlert = () => alert('Hello!')
     // Breadstick renders your custom `Alert` component
-    breadstick.notify(() => {
+    breadstick.notify(({ onClose }) => {
       return (
-        <Alert onClick={showAlert}>
+        <Alert onClick={onClose}>
           An JSX Alert notification
         </Alert>
       )
@@ -59,7 +102,25 @@ export default {
 ### 🔖 To do:
 - [x] Self implemented portal
 - [x] Expose `toaster` API to client and render components by calling `toaster.notify`.
-- [ ] Implement animations API for toast entry/exit.
-- [ ] Clear notifications API
+- [x] Implement animations API for toast entry/exit.
+- [x] Clear notifications API
 - [ ] Docs
-- [ ] Publish to NPM
+  - [ ] Setup Vuepress for documentation
+  - [ ] Netlify Demo
+- [x] Publish to NPM
+
+### 🤝 Contributing
+Here's our contribution [guide.](./.github/CONTRIBUTING.md)
+
+### ❤️ Support this project
+If you like this project, please consider supporting it by buying my a coffee!
+
+<a style="background: #FF813F; color: white; padding: 10px 20px; border-radius: 3px; display: inline-flex;" target="_blank" href="https://www.buymeacoffee.com/dIlWof6x5">
+  <img style="margin-right: 10px; height: 20px;" src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg" alt="Buy me a coffee">
+  <span>Buy me a coffee</span>
+</a>
+
+<center>
+  <br>
+  Made with ❤️ by <a target="_blank" href="https://twitter.com/codebender828">Jonathan Bakebwa 🇺🇬</a>
+</center>
