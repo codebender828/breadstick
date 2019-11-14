@@ -1,6 +1,6 @@
 <br />
 <center>
-  <image align="center" src="./assets/480w/breadstick-logo.png" width="250px">
+  <image align="center" src="https://res.cloudinary.com/xtellar/image/upload/v1573767816/breadstick/breadstick-logo_r6fnan.png" width="250px">
   <h1 align="center">Breadstick</h1>
   <h4 align="center">A simple but flexible implementation of toast style notifications for Vue.js</h4>
 </center>
