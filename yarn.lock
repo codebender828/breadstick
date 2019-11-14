@@ -10763,11 +10763,6 @@ vue-loader@^15.7.0:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
-vue-motion@^0.2.3:
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/vue-motion/-/vue-motion-0.2.3.tgz#aafa64c58fbcd94740e9199649723ccab13343b4"
-  integrity sha512-HYr4tKwr/LEIzfTRYHuMtatW5VLmCIKIoakLdYj5eZYAm14E+yMTSgQuDxj5xaWzhpuBDo+1cCv/ayvCuS0G0w==
-
 vue-style-loader@^4.1.0:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/vue-style-loader/-/vue-style-loader-4.1.2.tgz#dedf349806f25ceb4e64f3ad7c0a44fba735fcf8"

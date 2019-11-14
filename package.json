@@ -1,10 +1,33 @@
 {
   "name": "breadstick",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "main": "dist/breadstick.umd.js",
+  "module": "dist/breadstick.esm.js",
+  "unpkg": "dist/breadstick.min.js",
+  "author": {
+    "name": "Jonathan Bakebwa",
+    "url": "https://github.com/codebender828"
+  },
+  "keywords": [
+    "vue",
+    "notifications",
+    "toast",
+    "snackbar",
+    "breadstick"
+  ],
+  "files": [
+    "dist"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codebender828/breadstick"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build:npm": "vue-cli-service build --target lib --name breadstick src/index.js",
     "test:unit": "vue-cli-service test:unit --passWithNoTests",
     "lint": "vue-cli-service lint"
   },
@@ -13,8 +36,7 @@
     "node-sass": "^4.13.0",
     "sass-loader": "^8.0.0",
     "velocity-animate": "^1.5.2",
-    "vue": "^2.6.10",
-    "vue-motion": "^0.2.3"
+    "vue": "^2.6.10"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
