@@ -10,15 +10,23 @@ import toast from './'
 
 export default {
   name: 'app',
+  data () {
+    return {
+      counter: 0
+    }
+  },
   mounted () {
-    const showAlert = () => alert('Hello!')
-    toast.notify((h, { onClose = true }) => {
-      return h(Alert, {
-        on: {
-          click: showAlert
-        }
-      }, 'Another Alert message')
-    })
+    // let counter = this.counter
+    setInterval(() => {
+    // using a render callback
+      toast.notify(({ onClose }) => (
+        <Alert>
+          <div onClick={onClose}>
+            Alert with JSX
+          </div>
+        </Alert>
+      ))
+    }, 3000)
   },
   methods: {
     showAlert () {
