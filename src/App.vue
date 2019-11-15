@@ -41,6 +41,7 @@
 </template>
 
 <script>
+import { Alert } from './components/Alert/index'
 export default {
   name: 'app',
   data () {
@@ -75,27 +76,23 @@ export default {
     }
   },
   mounted () {
-    // setInterval(() => {
-    // // breadstick.notify(({ onClose }) => (
-    // //   <Alert>
-    // //     <div class="alert" onClick={onClose}>
-    // //       Alert with JSX
-    // //     </div>
-    // //   </Alert>
-    // // ), {
-    // //   position: 'top-right'
-    // // })
-    //   this.$breadstick.notify('🌮 Tacos are delicious', {
-    //     onClose: Function
-    //   })
-    // }, 3000)
+    setTimeout(() => {
+      this.$breadstick.notify(({ onClose }) => {
+        return (
+          <Alert close={onClose}>
+            <div style={{ textAlign: 'left' }} onClick={onClose}>
+              <h3 style={{ marginTop: 0 }}>Hi! Welcome to breadstick. 🥖</h3>
+              <p style={{ marginBottom: 0, marginTop: '5px' }}>A simple but flexible implementation of toast style notifications for Vue.js.</p>
+            </div>
+          </Alert>
+        )
+      }, { duration: 10000 })
+    }, 2000)
   },
   methods: {
     bakeAllBread () {
       this.positions.forEach(position => {
-        setTimeout(() => {
-          this.$breadstick.notify(position.message, { position: position.name })
-        }, 200)
+        this.$breadstick.notify(position.message, { position: position.name })
       })
     },
     bakeBottomRight () {

@@ -7,7 +7,7 @@ export const Alert = {
     title: String,
     close: Function
   },
-  render (h) {
+  render () {
     return (
       <div id={this.id} class="Breadstick__alert">
         {typeof title === 'string' ? (
@@ -15,7 +15,7 @@ export const Alert = {
         ) : (
           this.title
         )}
-
+        {!this.title && this.$slots.default}
         <Close close={this.close} />
       </div>
     )
