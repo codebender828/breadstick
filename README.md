@@ -1,11 +1,10 @@
 <br />
-<center>
-  <p align="center">
-    <image src="https://res.cloudinary.com/xtellar/image/upload/v1573767816/breadstick/breadstick-logo_r6fnan.png" width="250px">
-  </p>
-  <h1 align="center">Breadstick</h1>
-  <h4 align="center">A simple but flexible implementation of toast style notifications for Vue.js</h4>
-</center>
+<p align="center">
+  <image src="https://res.cloudinary.com/xtellar/image/upload/v1573767816/breadstick/breadstick-logo_r6fnan.png" width="150px">
+</p>
+<h1 align="center">Breadstick</h1>
+<h4 align="center">A simple but flexible implementation of toast style notifications for Vue.js</h4>
+
 
 - Inspired by React's [toasted-notes](https://github.com/bmcmahen/toasted-notes)
 ### 🌟 Features
