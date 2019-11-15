@@ -2,9 +2,7 @@
   "name": "breadstick",
   "version": "0.1.6",
   "private": false,
-  "main": "dist/breadstick.umd.js",
-  "module": "dist/breadstick.esm.js",
-  "unpkg": "dist/breadstick.min.js",
+  "main": "src/index.js",
   "author": {
     "name": "Jonathan Bakebwa",
     "url": "https://github.com/codebender828"
@@ -17,7 +15,8 @@
     "breadstick"
   ],
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "license": "MIT",
   "repository": {

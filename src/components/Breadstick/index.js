@@ -3,7 +3,7 @@ import BreadstickManager from '../BreadstickManager'
 
 const isBrowser = typeof window !== 'undefined' && typeof window.document !== 'undefined'
 const PORTAL_ID = 'breadstick-toast'
-
+const VM = typeof window !== 'undefined' && window.Vue ? window.Vue : Vue
 /**
  * @description Create Toast Portal
  * @returns {HTMLElement}
@@ -42,7 +42,7 @@ export const Breadstick = {
 }
 
 function createBreadstick (boundNotify) {
-  new Vue({
+  new VM({
     el: `#${PORTAL_ID}`,
     render (h) {
       return h(BreadstickManager, {
