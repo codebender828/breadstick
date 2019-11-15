@@ -110,10 +110,14 @@ export default {
   - [ ] Netlify Demo
 - [x] Publish to NPM
 
-### 🤝 Contributing
+### 🦑 Contributors
+- [Jonathan Bakebwa](https://twitter.com/codebender828)
+- This could be you :)
+
+#### 🤝 Contributing
 Here's our contribution [guide.](./.github/CONTRIBUTING.md)
 
-### ❤️ Support this project
+#### ❤️ Support this project
 If you like this project, please consider supporting it by buying my a coffee!
 
 <a style="background: #FF813F; color: white; padding: 10px 20px; border-radius: 3px; display: inline-flex;" target="_blank" href="https://www.buymeacoffee.com/dIlWof6x5">
