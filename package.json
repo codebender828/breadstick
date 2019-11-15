@@ -18,7 +18,9 @@
   ],
   "files": [
     "dist",
-    "src"
+    "src/components/",
+    "src/plugin/",
+    "src/index.js"
   ],
   "license": "MIT",
   "repository": {
