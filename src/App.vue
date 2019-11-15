@@ -108,7 +108,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style>
 #app {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   -webkit-font-smoothing: antialiased;
@@ -130,14 +130,13 @@ h3 {
 ul {
   max-width: 500px;
   text-align: left;
-
-  li {
-    margin-bottom: 10px;
-  }
 }
 
-.buttons {
-  button {
+ul li {
+  margin-bottom: 10px;
+}
+
+.buttons button {
     background: #1968ff;
     color: #fff;
     font-weight: 700;
@@ -153,19 +152,19 @@ ul {
       box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.6);
     }
   }
-}
 
 .docs {
   padding-top: 20px;
-  a {
-    font-weight: 700;
-    margin: 0 30px;
-    margin-bottom: 20px;
-    padding:  10px 20px;
-    color: #fff;
-    background: #262626;
-    border-radius: 3px;
-  }
+}
+
+.docs a {
+  font-weight: 700;
+  margin: 0 30px;
+  margin-bottom: 20px;
+  padding:  10px 20px;
+  color: #fff;
+  background: #262626;
+  border-radius: 3px;
 }
 </style>
 
