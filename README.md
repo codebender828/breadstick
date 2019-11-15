@@ -12,8 +12,10 @@
 - **An imperative API.** This means that you don't need to set component state or render elements to trigger notifications. Instead, just call a function. This makes it very user friendly for component library authors.
 - **Render whatever you want.** Utilize the render callback to create entirely custom notifications.
 - **Functional default styles.** Import the provided css for some nice styling defaults or write your own styles.
+- **Framework agnostic notifications.** Breadstick can be incrementally adopted to your application since it uses Vue.js under the hood. Simply add `vue` to your project and breadstick is ready to bake some breadsticks!
 
 ## ⚡️ Installation
+> 🥑 Breadstick assumes that you already have Vue.js installed in your app. If you haven't, you can still use it in your application. Simply run install vue to your app and breadstick will function.
 ```bash
 yarn install breadstick
 or
