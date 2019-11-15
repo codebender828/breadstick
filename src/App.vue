@@ -44,6 +44,19 @@
 import { Alert } from './components/Alert/index'
 export default {
   name: 'app',
+  created () {
+    const descContent = 'Simple and flexible toast style notifications for Vue.js.'
+    const createDescription = () => {
+      const desc = document.createElement('meta')
+      desc.setAttribute('name', 'description')
+      desc.setAttribute('content', descContent)
+      return document.head.appendChild(desc)
+    }
+    const description = document.head.querySelector('meta[name=description]')
+    document.title = '🥖 Breadstick'
+    description ? document.content = descContent
+      : createDescription()
+  },
   data () {
     return {
       counter: 0,
