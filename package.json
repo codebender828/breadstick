@@ -2,7 +2,9 @@
   "name": "breadstick",
   "version": "0.1.7",
   "private": false,
-  "main": "src/index.js",
+  "main": "dist/breadstick.umd.js",
+  "module": "dist/breadstick.esm.js",
+  "unpkg": "dist/breadstick.min.js",
   "author": {
     "name": "Jonathan Bakebwa",
     "url": "https://github.com/codebender828"
@@ -30,12 +32,13 @@
     "test:unit": "vue-cli-service test:unit --passWithNoTests",
     "lint": "vue-cli-service lint"
   },
-  "dependencies": {
-    "core-js": "^3.3.2",
-    "velocity-animate": "^1.5.2",
-    "vue": "^2.6.10"
+  "peerDependencies": {
+    "vue": "^2.6.10",
+    "velocity-animate": "^1.5.2"
   },
   "devDependencies": {
+    "vue": "^2.6.10",
+    "core-js": "^3.3.2",
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
     "@vue/cli-plugin-babel": "^4.0.0",
