@@ -1,6 +1,6 @@
 {
   "name": "breadstick",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "private": false,
   "main": "dist/breadstick.umd.js",
   "module": "dist/breadstick.esm.js",
