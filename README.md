@@ -3,10 +3,9 @@
   <image src="https://res.cloudinary.com/xtellar/image/upload/v1573767816/breadstick/breadstick-logo_r6fnan.png" width="150px">
 </p>
 <h1 align="center">Breadstick</h1>
-<h4 align="center">A simple but flexible implementation of toast style notifications for Vue.js</h4>
+<h4 align="center">A simple but flexible implementation of toast style notifications for Vue.js.</h4>
+<p align="center">🌟 Inspired by <a target="_blank" href="https://github.com/bmcmahen/toasted-notes">toasted-notes</a> for React - which I think is really cool. ❤️</p>
 
-
-- Inspired by React's [toasted-notes](https://github.com/bmcmahen/toasted-notes)
 ### 🌟 Features
 - **An imperative API.** This means that you don't need to set component state or render elements to trigger notifications. Instead, just call a function. This makes it very user friendly for component library authors.
 - **Render whatever you want.** Utilize the render callback to create entirely custom notifications.

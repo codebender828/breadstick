@@ -9,6 +9,7 @@
     "name": "Jonathan Bakebwa",
     "url": "https://github.com/codebender828"
   },
+  "license": "MIT",
   "keywords": [
     "vue",
     "notifications",
@@ -22,7 +23,6 @@
     "src/plugin/",
     "src/index.js"
   ],
-  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/codebender828/breadstick"
