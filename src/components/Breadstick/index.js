@@ -2,7 +2,8 @@ import Vue from 'vue'
 import BreadstickManager from '../BreadstickManager'
 
 const isBrowser = typeof window !== 'undefined' && typeof window.document !== 'undefined'
-const PORTAL_ID = 'breadstick-toast'
+const PORTAL_ID = 'breadstick-kitchen'
+const ROOT_ID = 'breadstick-chef'
 const VM = typeof window !== 'undefined' && window.Vue ? window.Vue : Vue
 /**
  * @description Create Toast Portal
@@ -28,6 +29,10 @@ function createPortal () {
     portalElement = el
   }
 
+  // Create toaster-kitchen root instance
+  const root = document.createElement('div')
+  root.id = ROOT_ID
+  portalElement.appendChild(root)
   return portalElement
 }
 
@@ -43,7 +48,7 @@ export const Breadstick = {
 
 function createBreadstick (boundNotify) {
   new VM({
-    el: `#${PORTAL_ID}`,
+    el: `#${ROOT_ID}`,
     render (h) {
       return h(BreadstickManager, {
         props: {

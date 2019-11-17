@@ -42,6 +42,10 @@
 
 <script>
 import { Close } from './components/Alert/index'
+import Breadstick from './index.js'
+
+const breadstick = new Breadstick()
+
 export default {
   name: 'app',
   created () {
@@ -90,7 +94,7 @@ export default {
   },
   mounted () {
     setTimeout(() => {
-      this.$breadstick.notify(({ onClose }) => {
+      breadstick.notify(({ onClose }) => {
         return (
           <div class="welcome">
             <div style={{ textAlign: 'left' }} onClick={onClose}>
@@ -100,20 +104,20 @@ export default {
             <Close close={onClose} />
           </div>
         )
-      }, { duration: 10000 })
+      }, { duration: 5000 })
     }, 2000)
   },
   methods: {
     bakeAllBread () {
       this.positions.forEach(position => {
-        this.$breadstick.notify(position.message, { position: position.name })
+        breadstick.notify(position.message, { position: position.name })
       })
     },
     bakeBottomRight () {
-      this.$breadstick.notify('🥞 Bottom right pancakes', { position: 'bottom-right' })
+      breadstick.notify('🥞 Bottom right pancakes', { position: 'bottom-right' })
     },
     bakeTopLeft () {
-      this.$breadstick.notify('🍊 Orange is the same orange', { position: 'top-left' })
+      breadstick.notify('🍊 Orange is the same orange', { position: 'top-left' })
     }
   }
 }

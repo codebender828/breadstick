@@ -32,12 +32,11 @@ Vue.use(Breadstick)
 // via `this.$breadstick` in your application.
 ```
 
-You can also use breadstick's `useBreadstick` API without the plugin architecture. This is useful for building UI component libraries.
+You can also use breadstick's `breadstick` API without the plugin architecture. This is useful for building UI component libraries.
 
 ```js
-import { useBreadstick } from 'breadstick'
-
-const breadstick = useBreadstick()
+import Breadstick from 'breadstick'
+const breadstick = new Breadstick()
 
 // You can now access the `breadstick` instance
 // via `breadstick` in your application.

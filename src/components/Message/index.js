@@ -70,8 +70,8 @@ const Message = {
         })
         return h('span', {
           on: {
-            'mouseenter': this.onMouseEnter,
-            'mouseleave': this.onMouseLeave
+            mouseenter: this.onMouseEnter,
+            mouseleave: this.onMouseLeave
           }
         }, [message])
       }
