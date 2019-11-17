@@ -68,7 +68,6 @@ const Message = {
           id: this.id,
           onClose: this.close
         })
-
         return h('span', {
           on: {
             'mouseenter': this.onMouseEnter,
@@ -79,7 +78,12 @@ const Message = {
 
       // The returned message is a component VNode
       if (this.message.constructor && this.message.constructor.name === 'VNode') {
-        return this.message
+        return h('span', {
+          on: {
+            'mouseenter': this.onMouseEnter,
+            'mouseleave': this.onMouseLeave
+          }
+        }, [this.message])
       }
       return null
     }
