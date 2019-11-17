@@ -64,7 +64,6 @@ this.$breadstick.notify('🥞 Show me the pancakes', {
 #### 🌮 With Vue's `render` function callback
 ```js
 import Alert from './components/Alert'
-import breadstick from 'breadstick'
 
 export default {
   name: 'app',
@@ -84,7 +83,6 @@ export default {
 #### 🚚 With JSX
 ```jsx
 import Alert from './components/Alert'
-import breadstick from 'breadstick'
 
 export default {
   name: 'app',
