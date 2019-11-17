@@ -57,6 +57,6 @@
     "vue-template-compiler": "^2.6.10"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "registry": "https://registry.npmjs.org/"
   }
 }
