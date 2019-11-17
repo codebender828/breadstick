@@ -107,9 +107,9 @@ export default {
 - [x] Expose `toaster` API to client and render components by calling `toaster.notify`.
 - [x] Implement animations API for toast entry/exit.
 - [x] Clear notifications API
-- [ ] Docs
+- [x] Docs
   - [ ] Setup Vuepress for documentation
-  - [ ] Netlify Demo
+  - [x] Netlify Demo
 - [x] Publish to NPM
 
 ### 🦑 Contributors
