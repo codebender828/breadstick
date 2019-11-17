@@ -156,7 +156,8 @@ const BreadstickManager = {
     */
     getStyle (position) {
       let style = {
-        maxWidth: '560px',
+        width: 'fit-content',
+        // maxWidth: '460px',
         position: 'fixed',
         zIndex: 5500
         // ?! Not sure why this is set to true, but will confirm today

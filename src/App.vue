@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import { Alert } from './components/Alert/index'
+import { Close } from './components/Alert/index'
 export default {
   name: 'app',
   created () {
@@ -92,12 +92,13 @@ export default {
     setTimeout(() => {
       this.$breadstick.notify(({ onClose }) => {
         return (
-          <Alert close={onClose}>
+          <div class="welcome">
             <div style={{ textAlign: 'left' }} onClick={onClose}>
               <h3 style={{ marginTop: 0 }}>Hi! Welcome to breadstick. 🥖</h3>
               <p style={{ marginBottom: 0, marginTop: '5px' }}>A simple but flexible implementation of toast style notifications for Vue.js.</p>
             </div>
-          </Alert>
+            <Close close={onClose} />
+          </div>
         )
       }, { duration: 10000 })
     }, 2000)
@@ -130,6 +131,22 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.welcome {
+  margin: 2.5px;
+  background-color: white;
+  overflow: hidden;
+  max-width: 650px;
+  position: relative;
+  border-radius: 0.4rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  display: flex;
+  padding: 1rem;
+  padding-right: 48px;
+  box-shadow: rgba(52, 58, 64, 0.15) 0px 1px 10px 0px,
+    rgba(52, 58, 64, 0.1) 0px 6px 12px 0px,
+    rgba(52, 58, 64, 0.12) 0px 6px 15px -2px;
 }
 
 h2,

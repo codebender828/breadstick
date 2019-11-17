@@ -55,7 +55,7 @@ const Message = {
       // The returned message is a string
       if (typeof this.message === 'string') {
         return (
-          <Alert id={this.id} title={this.message} close={this.close}>
+          <Alert id={this.id} clear={this.onMouseEnter} reset={this.onMouseLeave} title={this.message} close={this.close}>
             {this.message}
           </Alert>
         )
@@ -68,7 +68,13 @@ const Message = {
           id: this.id,
           onClose: this.close
         })
-        return message
+
+        return h('span', {
+          on: {
+            'mouseenter': this.onMouseEnter,
+            'mouseleave': this.onMouseLeave
+          }
+        }, [message])
       }
 
       // The returned message is a component VNode
@@ -79,20 +85,8 @@ const Message = {
     }
   },
   render (h) {
-    return h('div', {
-      on: {
-        'mouseenter': this.onMouseEnter,
-        'mouseleave': this.onMouseLeave
-      }
+    return h('span', {
     }, [this.renderMessage(h)])
-    // return (
-    //   <div
-    //     MouseEnter={this.onMouseEnter}
-    //     onMouseLeave={this.onMouseLeave}
-    //   >
-    //     {this.renderMessage(h)}
-    //   </div>
-    // )
   }
 }
 export default Message
