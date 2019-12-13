@@ -1,4 +1,4 @@
-import velocity from 'velocity-animate'
+import anime from 'animejs'
 import Message from '../Message'
 
 const positions = {
@@ -38,15 +38,15 @@ const animations = {
   enter: (el) => {
     var height = el.clientHeight
     return {
-      height: [height, 0],
-      opacity: [1, 0],
-      scale: [1, 0.9]
+      height: [0, height],
+      opacity: [0, 1],
+      scale: [0.9, 1]
     }
   },
   leave: {
     height: 0,
-    opacity: [0, 1],
-    scale: [0.9, 1]
+    opacity: [1, 0],
+    scale: [1, 0.9]
   }
 }
 
@@ -157,11 +157,8 @@ const BreadstickManager = {
     getStyle (position) {
       let style = {
         width: 'fit-content',
-        // maxWidth: '460px',
         position: 'fixed',
         zIndex: 5500
-        // ?! Not sure why this is set to true, but will confirm today
-        // pointerEvents: 'none'
       }
 
       if (position === 'top' || position === 'bottom') {
@@ -188,11 +185,11 @@ const BreadstickManager = {
     },
     /**
      * @description Get animation for transition
-     * @param {String} index Type of animation phase
+     * @param {String} key Type of animation phase
      * @param {HTMLElement} el Element
      */
-    getAnimation (index, el) {
-      const animation = animations[index]
+    getAnimation (key, el) {
+      const animation = animations[key]
       return typeof animation === 'function'
         ? animation.call(this, el)
         : animation
@@ -203,9 +200,11 @@ const BreadstickManager = {
      */
     enter (el, complete) {
       const animation = this.getAnimation('enter', el)
-      velocity(el, animation, {
-        duration: this.speed,
-        complete
+      anime({
+        targets: el,
+        ...animation,
+        complete,
+        easing: 'spring(1, 100, 50, 0)'
       })
     },
     /**
@@ -214,9 +213,11 @@ const BreadstickManager = {
      */
     leave (el, complete) {
       let animation = this.getAnimation('leave', el)
-      velocity(el, animation, {
-        duration: this.speed,
-        complete
+      anime({
+        targets: el,
+        ...animation,
+        complete,
+        easing: 'spring(1, 100, 70, 0)'
       })
     }
   },

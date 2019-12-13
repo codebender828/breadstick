@@ -1,6 +1,6 @@
 {
   "name": "breadstick",
-  "version": "0.1.17",
+  "version": "0.1.19",
   "private": false,
   "main": "dist/breadstick.umd.js",
   "module": "dist/breadstick.esm.js",
@@ -31,11 +31,11 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "build:npm": "vue-cli-service build --target lib --name breadstick src/index.js",
+    "build:rollup": "rollup -c && rollup -c --environment MINIFY",
     "test:unit": "vue-cli-service test:unit --passWithNoTests",
     "lint": "vue-cli-service lint"
   },
   "peerDependencies": {
-    "velocity-animate": "^1.5.2",
     "vue": "^2.6.10"
   },
   "devDependencies": {
@@ -58,5 +58,8 @@
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
+  },
+  "dependencies": {
+    "animejs": "^3.1.0"
   }
 }

@@ -42,9 +42,6 @@
 
 <script>
 import { Close } from './components/Alert/index'
-import Breadstick from './index.js'
-
-const breadstick = new Breadstick()
 
 export default {
   name: 'app',
@@ -94,7 +91,7 @@ export default {
   },
   mounted () {
     setTimeout(() => {
-      breadstick.notify(({ onClose }) => {
+      this.$breadstick.notify(({ onClose }) => {
         return (
           <div class="welcome">
             <div style={{ textAlign: 'left' }} onClick={onClose}>
@@ -110,14 +107,14 @@ export default {
   methods: {
     bakeAllBread () {
       this.positions.forEach(position => {
-        breadstick.notify(position.message, { position: position.name })
+        this.$breadstick.notify(position.message, { position: position.name })
       })
     },
     bakeBottomRight () {
-      breadstick.notify('🥞 Bottom right pancakes', { position: 'bottom-right' })
+      this.$breadstick.notify('🥞 Bottom right pancakes', { position: 'bottom-right' })
     },
     bakeTopLeft () {
-      breadstick.notify('🍊 Orange is the same orange', { position: 'top-left' })
+      this.$breadstick.notify('🍊 Orange is the same orange', { position: 'top-left' })
     }
   }
 }
