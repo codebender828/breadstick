@@ -2,9 +2,11 @@
   "name": "breadstick",
   "version": "0.1.19",
   "private": false,
-  "main": "dist/breadstick.umd.js",
-  "module": "dist/breadstick.esm.js",
-  "unpkg": "dist/breadstick.min.js",
+  "main": "dist/index.js",
+  "module": "dist/esm/indexjs",
+  "browser": "dist/esm/index.js",
+  "unpkg": "dist/umd/index.js",
+  "jsdelivr": "dist/umd/index.js",
   "author": {
     "name": "Jonathan Bakebwa",
     "url": "https://github.com/codebender828"
@@ -39,6 +41,7 @@
     "vue": "^2.6.10"
   },
   "devDependencies": {
+    "@babel/plugin-external-helpers": "^7.7.4",
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
     "@vue/cli-plugin-babel": "^4.0.0",
@@ -48,11 +51,20 @@
     "@vue/eslint-config-standard": "^4.0.0",
     "@vue/test-utils": "1.0.0-beta.29",
     "babel-eslint": "^10.0.3",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
     "core-js": "^3.3.2",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "husky": "^3.0.9",
     "lint-staged": "^9.4.2",
+    "rollup": "^1.27.12",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-scss": "^1.0.2",
+    "rollup-plugin-terser": "^5.1.3",
+    "rollup-plugin-uglify": "^6.0.4",
     "vue": "^2.6.10",
     "vue-template-compiler": "^2.6.10"
   },
