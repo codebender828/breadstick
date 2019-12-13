@@ -24,15 +24,14 @@ You can then register `breadstick` as a plugin.
 
 ```js
 import Vue from 'vue'
-import Breadstick from 'breadstick'
+import { BreadstickBakery } from 'breadstick'
 
-Vue.use(Breadstick)
-
+Vue.use(BreadstickBakery)
 // You can now access the `breadstick` instance
 // via `this.$breadstick` in your application.
 ```
 
-You can also use breadstick's `breadstick` API without the plugin architecture. This is useful for building UI component libraries.
+By default, breadstick exports a class instance API you can use without the plugin architecture. This is useful for building UI component libraries.
 
 ```js
 import Breadstick from 'breadstick'
