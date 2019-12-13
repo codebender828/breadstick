@@ -99,15 +99,13 @@ export default {
 }
 ```
 
-### 🔖 To do:
-- [x] Self implemented portal
-- [x] Expose `toaster` API to client and render components by calling `toaster.notify`.
-- [x] Implement animations API for toast entry/exit.
-- [x] Clear notifications API
-- [x] Docs
-  - [ ] Setup Vuepress for documentation
-  - [x] Netlify Demo
-- [x] Publish to NPM
+### 🔖 TODO:
+Breadstick still has a few more features coming up. These include:
+- [ ] Server-side rendering support
+- [ ] Replace portal with `PortalVue`
+- [ ] Replace peer dependency `animate-velocity` with `anime.js` for animations. Size benefits i.e `22KB -> 6KB`
+- [ ] Vuepress documentation
+
 
 ### 🦑 Contributors
 - [Jonathan Bakebwa](https://twitter.com/codebender828)
