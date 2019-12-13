@@ -31,7 +31,7 @@ const commons = {
       include: /node_modules/
     }),
     scss({
-      output: 'breadstick.css'
+      output: 'dist/breadstick.css'
     }),
     production && terser()
   ]
