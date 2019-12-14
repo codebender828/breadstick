@@ -21,10 +21,7 @@
     "breadstick"
   ],
   "files": [
-    "dist",
-    "src/components/",
-    "src/plugin/",
-    "src/index.js"
+    "dist"
   ],
   "repository": {
     "type": "git",
