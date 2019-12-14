@@ -14,6 +14,11 @@
 - **Functional default styles.** Import the provided css for some nice styling defaults or write your own styles.
 - **JS agnostic notifications.** Breadstick can be incrementally adopted to your application since it uses the already progressive Vue.js under the hood.
 
+### 🥳 Getting Started
+Here are a few Codesandbox starters you can use to get started with Breadstick in your Vue or Nuxt App.
+- **Vue.js Starter**: http://bit.ly/breadstick-vue
+- **Nuxt.js Starter**: http://bit.ly/breadstick-nuxt
+
 ## ⚡️ Installation
 ```bash
 yarn install breadstick
@@ -100,10 +105,10 @@ export default {
 
 ### 🔖 TODO:
 Breadstick still has a few more features coming up. These include:
-- [ ] Server-side rendering support
-- [ ] Replace portal with `PortalVue`
-- [ ] Replace peer dependency `animate-velocity` with `anime.js` for animations. Size benefits i.e `22KB -> 6KB`
-- [ ] Vuepress documentation
+- [x] Nuxt Server-side rendering support
+- [x] Replace peer dependency `animate-velocity` with `anime.js` for animations. Size benefits i.e `22KB -> 6KB`
+- [ ] Replace internal portal with `PortalVue`
+- [ ] Create docs site with Vuepress
 
 
 ### 🦑 Contributors

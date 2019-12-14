@@ -95,6 +95,7 @@ export default {
         return (
           <div class="welcome">
             <div style={{ textAlign: 'left' }} onClick={onClose}>
+              <img src="https://res.cloudinary.com/xtellar/image/upload/w_200/v1572857445/me_zqos4e.jpg" alt="Jonathan Bakebwa" />
               <h3 style={{ marginTop: 0 }}>Hi! Welcome to breadstick. 🥖</h3>
               <p style={{ marginBottom: 0, marginTop: '5px' }}>A simple but flexible implementation of toast style notifications for Vue.js.</p>
             </div>
