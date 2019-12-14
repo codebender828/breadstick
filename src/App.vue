@@ -94,15 +94,30 @@ export default {
       this.$breadstick.notify(({ onClose }) => {
         return (
           <div class="welcome">
-            <div style={{ textAlign: 'left' }} onClick={onClose}>
-              <img src="https://res.cloudinary.com/xtellar/image/upload/w_200/v1572857445/me_zqos4e.jpg" alt="Jonathan Bakebwa" />
-              <h3 style={{ marginTop: 0 }}>Hi! Welcome to breadstick. 🥖</h3>
-              <p style={{ marginBottom: 0, marginTop: '5px' }}>A simple but flexible implementation of toast style notifications for Vue.js.</p>
+            <div style={{
+              textAlign: 'left',
+              display: 'flex',
+              alignItem: 'center'
+            }} onClick={onClose}>
+              <img style={{
+                width: '100px',
+                height: '100px',
+                borderRadius: '5px'
+              }} src="https://res.cloudinary.com/xtellar/image/upload/c_scale,q_84,w_158/v1572857445/me_zqos4e.jpg" alt="Jonathan Bakebwa" />
+              <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                padding: '1rem'
+              }}>
+                <h3 style={{ marginTop: 0 }}>Hi! Welcome to breadstick. 🥖</h3>
+                <p style={{ marginBottom: 0, marginTop: '5px' }}>A simple but flexible implementation of toast style notifications for Vue.js.</p>
+              </div>
             </div>
             <Close close={onClose} />
           </div>
         )
-      }, { duration: 5000 })
+      }, { duration: 50000 })
     }, 2000)
   },
   methods: {
@@ -137,14 +152,14 @@ export default {
 
 .welcome {
   margin: 2.5px;
-  background-color: white;
+  background-color: #262626;
+  color: white;
   overflow: hidden;
   max-width: 650px;
   position: relative;
   border-radius: 0.4rem;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   display: flex;
-  padding: 1rem;
   padding-right: 48px;
   box-shadow: rgba(52, 58, 64, 0.15) 0px 1px 10px 0px,
     rgba(52, 58, 64, 0.1) 0px 6px 12px 0px,
