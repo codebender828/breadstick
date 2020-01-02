@@ -49,7 +49,11 @@ export default [
         name,
         file: `dist/esm/index.js`,
         format: 'esm',
-        exports: 'named'
+        exports: 'named',
+        globals: {
+          'vue': 'Vue',
+          'animejs': 'anime'
+        }
       }
     ],
     ...commons
@@ -62,7 +66,11 @@ export default [
         name,
         file: `dist/es/index.js`,
         format: 'es',
-        exports: 'named'
+        exports: 'named',
+        globals: {
+          'vue': 'Vue',
+          'animejs': 'anime'
+        }
       }
     ],
     ...commons
@@ -75,7 +83,11 @@ export default [
         name,
         file: `dist/umd/index.js`,
         format: 'umd',
-        exports: 'named'
+        exports: 'named',
+        globals: {
+          'vue': 'Vue',
+          'animejs': 'anime'
+        }
       }
     ],
     ...commons
@@ -88,7 +100,11 @@ export default [
         name,
         file: `dist/cjs/index.js`,
         format: 'cjs',
-        exports: 'named'
+        exports: 'named',
+        globals: {
+          'vue': 'Vue',
+          'animejs': 'anime'
+        }
       }
     ],
     ...commons

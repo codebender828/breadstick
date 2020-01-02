@@ -20,13 +20,11 @@ Here are a few Codesandbox starters you can use to get started with Breadstick i
 - **Nuxt.js Starter**: http://bit.ly/breadstick-nuxt
 
 ## ⚡️ Installation
+Install `breadstick` and its peer dependency, `animejs`, using yarn or npm.
 ```bash
-yarn install breadstick
-or
 npm install breadstick --save
 ```
 You can then register `breadstick` as a plugin.
-
 ```js
 import Vue from 'vue'
 import { BreadstickBakery } from 'breadstick'
@@ -107,6 +105,8 @@ export default {
 Breadstick still has a few more features coming up. These include:
 - [x] Nuxt Server-side rendering support
 - [x] Replace peer dependency `animate-velocity` with `anime.js` for animations. Size benefits i.e `22KB -> 6KB`
+- [ ] Allow sharing of same application Vue instance.
+- [ ] Passing in values for position.
 - [ ] Replace internal portal with `PortalVue`
 - [ ] Create docs site with Vuepress
 

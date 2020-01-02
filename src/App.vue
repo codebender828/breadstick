@@ -98,7 +98,7 @@ export default {
               textAlign: 'left',
               display: 'flex',
               alignItem: 'center'
-            }} onClick={onClose}>
+            }}>
               <img style={{
                 width: '100px',
                 height: '100px',
@@ -181,21 +181,21 @@ ul li {
 }
 
 .buttons button {
-    background: #1968ff;
-    color: #fff;
-    font-weight: 700;
-    border-radius: 3px;
-    outline: none;
-    border: none;
-    font-size: 1rem;
-    padding:  0.8rem 1rem;
-    margin: 0.5rem 0.8rem;
-    transition: all 0.2s ease-in-out;
+  background: #1968ff;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 3px;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  padding:  0.8rem 1rem;
+  margin: 0.5rem 0.8rem;
+  transition: all 0.2s ease-in-out;
+}
 
-    &:focus {
-      box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.6);
-    }
-  }
+button:focus {
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.6);
+}
 
 .docs {
   padding-top: 20px;

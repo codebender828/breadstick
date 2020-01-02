@@ -22,7 +22,7 @@ function createPortal () {
   } else {
     const el = document.createElement('div')
     el.id = PORTAL_ID
-    el.className = 'Toaster'
+    el.className = 'Breadstick'
     if (document.body != null) {
       document.body.appendChild(el)
     }
