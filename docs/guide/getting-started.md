@@ -3,12 +3,23 @@
 ---
 # Getting Started
 
+## :speaking_head: Introduction
+Breadstick is a simple but flexible implementation of toast style notifications for Vue.js. 🌟 Inspired by [toasted-notes](https://github.com/bmcmahen/toasted-notes) for React - which I think is really cool. ❤️
+
+See a live [demo](https://breadstick.now.sh/) of breadstick
+
 ## :construction_worker_man: Installation
 
 Install ```breadstick``` and its peer dependency, ```animejs```, using yarn or npm.
 
 ``` bash
   npm install breadstick --save
+```
+
+Or
+
+``` bash
+  yarn add breadstick
 ```
 You can then register ```breadstick``` as a plugin.
 
