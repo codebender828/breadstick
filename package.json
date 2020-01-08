@@ -31,6 +31,8 @@
     "build": "vue-cli-service build",
     "build:npm": "vue-cli-service build --target lib --name breadstick src/index.js",
     "build:rollup": "rollup -c && rollup -c --environment MINIFY",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
     "test:unit": "vue-cli-service test:unit --passWithNoTests",
     "lint": "vue-cli-service lint"
   },
@@ -64,8 +66,9 @@
     "rollup-plugin-scss": "^1.0.2",
     "rollup-plugin-terser": "^5.1.3",
     "rollup-plugin-uglify": "^6.0.4",
-    "vue": "^2.6.10",
-    "vue-template-compiler": "^2.6.10"
+    "vue": "^2.6.11",
+    "vue-template-compiler": "^2.6.11",
+    "vuepress": "^1.2.0"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
