@@ -26,6 +26,7 @@ You can then register ```breadstick``` as a plugin.
 ``` js
   import Vue from 'vue'
   import { BreadstickBakery } from 'breadstick'
+  import 'breadstick/dist/breadstick.css'
 
   Vue.use(BreadstickBakery)
   // You can now access the `breadstick` instance
@@ -36,6 +37,8 @@ By default, ```breadstick``` exports a class instance API you can use without th
 
 ``` js
   import Breadstick from 'breadstick'
+  import 'breadstick/dist/breadstick.css'
+
   const breadstick = new Breadstick()
 
   // You can now access the `breadstick` instance
