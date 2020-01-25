@@ -36,16 +36,6 @@ function createPortal () {
   return portalElement
 }
 
-/**
- * Breadstick component
- */
-// export const Breadstick = {
-//   name: 'Breadstick',
-//   render (h) {
-//     return h('span', this.$slots.default)
-//   }
-// }
-
 function createBreadstick (boundNotify) {
   new VM({
     el: `#${ROOT_ID}`,

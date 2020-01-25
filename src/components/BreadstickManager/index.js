@@ -206,47 +206,45 @@ const BreadstickManager = {
     }
   },
   render (h) {
-    return (
-      <span>
-        {Object.keys(this.positions).map(position => {
-          const pos = position
-          const toasts = this.positions[pos]
-          return (
-            <TransitionGroup
-              css={false}
-              onEnter={this.enter}
-              onLeave={this.leave}
-              key={position}
-              className={'Breadstick__manager-' + pos}
-              ref={`BreadstickManager_${pos}`}
-              style={{
-                ...this.getStyle(pos)
-              }}
-            >
-              {toasts.map((toast) => {
-                return h(Message, {
-                  props: {
-                    position: pos,
-                    key: toast.id,
-                    message: toast.message,
-                    ...toast
-                  },
-                  style: {
-                    ...computeBreadstickStyle(pos)
-                  },
-                  on: {
-                    remove: ({ id, position }) => {
-                      this.removeToast(id, position)
-                    }
-                  },
-                  key: toast.id
-                }, this.$slots.default)
-              })}
-            </TransitionGroup>
-          )
-        })}
-      </span>
-    )
+    return h('span', [
+      Object.keys(this.positions).map((position) => {
+        const pos = position
+        const toasts = this.positions[pos]
+        return h('TransitionGroup', {
+          style: this.getStyle(pos),
+          props: {
+            css: false
+          },
+          on: {
+            enter: this.enter,
+            leave: this.leave
+          },
+          key: position,
+          class: ['Breadstick__manager-' + pos],
+          ref: `BreadstickManager_${pos}`
+        }, [
+          toasts.map((toast) => {
+            return h(Message, {
+              props: {
+                position: pos,
+                key: toast.id,
+                message: toast.message,
+                ...toast
+              },
+              style: {
+                ...computeBreadstickStyle(pos)
+              },
+              on: {
+                remove: ({ id, position }) => {
+                  this.removeToast(id, position)
+                }
+              },
+              key: toast.id
+            }, this.$slots.default)
+          })
+        ])
+      })
+    ])
   }
 }
 

@@ -1,6 +1,6 @@
 {
   "name": "breadstick",
-  "version": "0.2.6",
+  "version": "0.2.8",
   "private": false,
   "main": "dist/index.js",
   "module": "dist/es/index.js",
@@ -27,8 +27,8 @@
   },
   "scripts": {
     "babel": "yarn babel:cjs && yarn babel:es",
-    "babel:cjs": "cross-env NODE_ENV=production BABEL_ENV=cjs babel --root-mode upward src -d dist",
-    "babel:es": "cross-env NODE_ENV=production BABEL_ENV=es babel --root-mode upward src -d dist/es",
+    "babel:cjs": "cross-env NODE_ENV=production BABEL_ENV=cjs babel --root-mode upward src -d dist --copy-files",
+    "babel:es": "cross-env NODE_ENV=production BABEL_ENV=es babel --root-mode upward src -d dist/es --copy-files",
     "dev": "rollup -c --watch",
     "build": "rollup -c && rollup -c --environment MINIFY",
     "build:npm": "vue-cli-service build --target lib --name breadstick src/index.js",
