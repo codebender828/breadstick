@@ -19,54 +19,83 @@
 - **Functional default styles.** Import the provided css for some nice styling defaults or write your own styles.
 - **JS agnostic notifications.** Breadstick can be incrementally adopted to your application since it uses the already progressive Vue.js under the hood.
 
-### 🥳 Getting Started
+## 📚 Table of Contents
+- [Installation](#installation)
+- [Examples](#examples)
+  - [Basic Usage](#basic-usage)
+  - [Using different positions](#different-positions)
+- [Advanced Usage](#advanced)
+
+### 🥳 Breadstick Starters
 Here are a few Codesandbox starters you can use to get started with Breadstick in your Vue or Nuxt App.
 - **Vue.js Starter**: http://bit.ly/breadstick-vue
 - **Nuxt.js Starter**: http://bit.ly/breadstick-nuxt
 
-## ⚡️ Installation
+<a id="installation"></a>
+### ⚡️ Installation
 Install `breadstick` and its peer dependency, `animejs`, using yarn or npm.
+
 ```bash
-npm install breadstick --save
+npm install breadstick animejs --save
 ```
-You can then register `breadstick` as a plugin.
+You can then register `BreadstickBakery` as a Vue plugin.
 ```js
 import Vue from 'vue'
 import { BreadstickBakery } from 'breadstick'
+import "breadstick/dist/breadstick.css";
 
+// This exposes `this.$breadstick` in your Vue template.
 Vue.use(BreadstickBakery)
-// You can now access the `breadstick` instance
-// via `this.$breadstick` in your application.
 ```
 
-By default, breadstick exports a class instance API you can use without the plugin architecture. This is useful for building UI component libraries.
 
-```js
-import Breadstick from 'breadstick'
-const breadstick = new Breadstick()
+<a id="examples"></a>
 
-// You can now access the `breadstick` instance
-// via `breadstick` in your application.
-```
+### 🤖 Examples
+Breadstick can be used to render different types of notifications out of the box. You can render simple string notifications as well as custom styled notifications. This makes it really convenient 
 
-### 🎛 How it works
-Simply import and create a new `breadstick` instance and call the `notify` method. Breadstick will expose a `render` function API that you can use to render custom notifications inside of breadstick. Alternatively you can also use plain JSX to call the notify method.
+<a id="basic-usage"></a>
 
-Rendering custom components inside of breadstick gives component library authors flexibility with styling of notifications. This works well with design systems too. The render function/JSX API exposes the exact same render function used inside of Vue templates so all other component options are accessible.
+#### 🍊 Basic usage
+Invoke a notification using the `notify` method to display a message to the user.
+Breadstick defaults the notification duration to 5 seconds in the `top` position.
 
-### 🤖Examples
-Breadstick's API only works with Vue's render function or JSX API to render custom components inside of notifications.
-
-#### 🍊 With basic string messsage
 ```js
 this.$breadstick.notify('🥞 Show me the pancakes')
+```
+<a id="different-positions"></a>
 
-// With options:
-this.$breadstick.notify('🥞 Show me the pancakes', {
-  position: 'top' || 'bottom' || 'top-left' || 'top-right' || 'bottom-left' || 'bottom-right',
-  duration: 8000 // Default is 5000
+#### 📚 Using different positions
+```js
+[
+  'top-left', 
+  'top', 
+  'top-right', 
+  'bottom-left', 
+  'bottom', 
+  'bottom-right'
+].forEach(position => {
+  this.$breadstick.notify("Using position " + position, {
+    position
+  })
 })
 ```
+
+<a id="custom-notifications"></a>
+
+#### 🏠 Using custom element
+With JSX or Vue's render function, breadstick is able to render a custom element or Vue component
+
+```jsx
+this.$breadstick.notify(
+  <div>I am a custom HTML element</div>
+)
+```
+
+<a id="advanced"></a>
+
+### 🏗 Advanced usage
+Whereas breadstick shines in making simple notifications for your Vue app, it's real strength is shown in allowing you to create custom notifications through it's render function callback.
 
 #### 🌮 With Vue's `render` function callback
 ```js
@@ -108,12 +137,8 @@ export default {
 
 ### 🔖 TODO:
 Breadstick still has a few more features coming up. These include:
-- [x] Nuxt Server-side rendering support
-- [x] Replace peer dependency `animate-velocity` with `anime.js` for animations. Size benefits i.e `22KB -> 6KB`
+- [ ] Indefinitely display toast notification
 - [ ] Allow sharing of same application Vue instance.
-- [ ] Passing in values for position.
-- [ ] Replace internal portal with `PortalVue`
-- [ ] Create docs site with Vuepress
 
 #### 🤝 Contributing
 Here's our contribution [guide.](./.github/CONTRIBUTING.md)

@@ -119,25 +119,9 @@ const BreadstickManager = {
       Object.keys(this.positions).forEach((pos) => {
         const position = this.positions[pos]
         position.forEach((toast) => {
-          this.closeToast(toast.id, pos)
+          this.removeToast(toast.id, pos)
         })
       })
-    },
-
-    /**
-     * @description Close single toast component
-     * @param {String} id
-     * @param {String} position
-     */
-    closeToast (id, position) {
-      this.positions[position] = this.positions[position].map(toast => {
-        if (toast.id !== id) return toast
-        return {
-          ...toast,
-          requestClose: true
-        }
-      })
-      return this.positions[position]
     },
 
     /**
