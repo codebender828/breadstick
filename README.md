@@ -24,7 +24,9 @@
 - [Examples](#examples)
   - [Basic Usage](#basic-usage)
   - [Using different positions](#different-positions)
-- [Advanced Usage](#advanced)
+- [Advanced Usage ( Displaying custom notifications )](#advanced)
+  - [Render function callback](#render-callback)
+  - [With JSX](#with-jsx)
 
 ### 🥳 Breadstick Starters
 Here are a few Codesandbox starters you can use to get started with Breadstick in your Vue or Nuxt App.
@@ -92,19 +94,39 @@ this.$breadstick.notify(
 )
 ```
 
+<a id="close-all"></a>
+
+#### 📭 Close all notifications
+You can clear all notifications by calling breadstick's `closeAll` method
+
+```jsx
+this.$breadstick.closeAll()
+```
+
 <a id="advanced"></a>
 
 ### 🏗 Advanced usage
 Whereas breadstick shines in making simple notifications for your Vue app, it's real strength is shown in allowing you to create custom notifications through it's render function callback.
 
+This is particularly useful if you want use custom themed elements or Vue components inside of your toast notification. In the following snippet, we render a custom `Alert` component to display a toast notification.
+
+This is particularly useful for building your own themed notification component library.
+
+[Here are some examples](#) of how to use breadstick to render you own custom element.
+
+<a id="render-callback"></a>
+
 #### 🌮 With Vue's `render` function callback
+Breadstick exposes Vue's `createElement` function in the render callback that you can use to render your own components in a toast notification. This can be useful in a context where Vue's `this` context may not be available.
+
+In a Vue component, you can even use that component's `this.$createElement` to render your own element/component and return it in the render function callback so breadstick can display it.
+
 ```js
+// Import your custom `Alert` component and render it in breadstick
 import Alert from './components/Alert'
 
 export default {
-  name: 'app',
   mounted () {
-    // Breadstick renders your custom `Alert` component
     this.$breadstick.notify(({ h, onClose }) => {
       return h(Alert, {
         on: {
@@ -116,24 +138,70 @@ export default {
 }
 ```
 
+<a id="with-jsx"></a>
+
 #### 🚚 With JSX
+You can also use JSX if you like :).
 ```jsx
+// Import your custom `Alert` component and render it in breadstick
 import Alert from './components/Alert'
 
 export default {
-  name: 'app',
   mounted () {
-    const showAlert = () => alert('Hello!')
-    // Breadstick renders your custom `Alert` component
     breadstick.notify(({ onClose }) => {
       return (
         <Alert onClick={onClose}>
           An JSX Alert notification
         </Alert>
       )
+    }
   }
 }
 ```
+
+<a id="api"></a>
+
+## 💼 API
+
+<a id="notify"></a>
+
+### `notify(String|VNode|Function, options)` 
+ - **Arguments**
+   - `{ String | VNode | Function }` Message
+   - `{ Object }` options
+
+Breadstick's `notify` method accepts two parameters. The first parameter can be a `String`, `VNode` (Object), or `Function` and the second is the options object.
+
+If a string is passed in the first argument, breadstick will render a notificiation with the string in the top center position with it's default internal component.
+```js
+this.$breadstick.notify('Simple notification.')
+```
+
+If a `VNode` is passed, Breadstick treats it like a rendered component and renders it instead.
+```jsx
+this.$breadstick.notify(
+  <div>I am a custom HTML element</div>
+)
+```
+
+If a callback `Function` is passed in the first argument, it will expose an object with two parameters: `h` and the `onClose` which are both functions. Using a render callback allows you to tap into the close function. It's your best option if you want to completely re-style your toast notification
+
+```js
+this.$breadstick.notify(({ h, onClose }) => {
+  return h('div', 'My custom notification')
+})
+```
+#### Options
+Option | Type | Default | Values
+--- | --- | --- | --
+`position` | `String` | `top` | `top`, `right`, `bottom`, `left`, `top-left`, `top-right`, `bottom-right`, `bottom-left`
+`duration` | `Number` | 5000 | Any number in milliseconds
+
+<a id="close-all"></a>
+
+### `closeAll()`
+ - Type: `Function`
+The `closeAll` method closes all toast notifications that are visible in the UI at the time of invocation. Nice a succinct way to dismiss all notifications
 
 ### 🔖 TODO:
 Breadstick still has a few more features coming up. These include:
