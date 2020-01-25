@@ -8,7 +8,7 @@
   <image src="https://res.cloudinary.com/xtellar/image/upload/v1573767816/breadstick/breadstick-logo_r6fnan.png" width="150px">
 </p>
 <h1 align="center">Breadstick</h1>
-<h4 align="center">A simple but flexible implementation of toast style notifications for Vue.js.</h4>
+<h4 align="center">A simple and flexible implementation of toast style notifications for Vue.js.</h4>
 <p align="center">🌟 Inspired by <a target="_blank" href="https://github.com/bmcmahen/toasted-notes">toasted-notes</a> for React - which I think is really cool. ❤️</p>
 
 <h4 align="center"><a href="https://breadstick.now.sh/" target="_blank">Demo</a></h4>
@@ -84,6 +84,8 @@ this.$breadstick.notify('🥞 Show me the pancakes')
 <a id="different-positions"></a>
 
 #### 📚 Using different positions
+You can display notifications in different positions, including top-left, top, top-right, bottom-left, bottom, and bottom-right.
+
 ```js
 [
   'top-left', 
