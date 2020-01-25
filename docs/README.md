@@ -7,7 +7,7 @@ features:
 - title: An imperative API
   details: This means that you don't need to set component state or render elements to trigger notifications. Instead, just call a function. This makes it very user friendly for component library authors.
 - title: Render whatever you want
-  details: tilize the render callback to create entirely custom notifications.
+  details: utilize the render callback to create entirely custom notifications.
 - title: Functional default styles
   details: Import the provided css for some nice styling defaults or write your own styles.
 - title: JS agnostic notifications
