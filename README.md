@@ -20,13 +20,26 @@
 - **JS agnostic notifications.** Breadstick can be incrementally adopted to your application since it uses the already progressive Vue.js under the hood.
 
 ## 📚 Table of Contents
-- [Installation](#installation)
-- [Examples](#examples)
-  - [Basic Usage](#basic-usage)
-  - [Using different positions](#different-positions)
-- [Advanced Usage ( Displaying custom notifications )](#advanced)
-  - [Render function callback](#render-callback)
-  - [With JSX](#with-jsx)
+- [📚 Table of Contents](#%f0%9f%93%9a-table-of-contents)
+  - [🥳 Breadstick Starters](#%f0%9f%a5%b3-breadstick-starters)
+  - [⚡️ Installation](#%e2%9a%a1%ef%b8%8f-installation)
+    - [Installing with Nuxt](#installing-with-nuxt)
+  - [🤖 Examples](#%f0%9f%a4%96-examples)
+    - [🍊 Basic usage](#%f0%9f%8d%8a-basic-usage)
+    - [📚 Using different positions](#%f0%9f%93%9a-using-different-positions)
+    - [🏠 Using custom element](#%f0%9f%8f%a0-using-custom-element)
+    - [📭 Close all notifications](#%f0%9f%93%ad-close-all-notifications)
+  - [🏗 Advanced usage](#%f0%9f%8f%97-advanced-usage)
+    - [🌮 With Vue's `render` function callback](#%f0%9f%8c%ae-with-vues-render-function-callback)
+    - [🚚 With JSX](#%f0%9f%9a%9a-with-jsx)
+- [💼 API](#%f0%9f%92%bc-api)
+  - [`notify(String|VNode|Function, options)`](#notifystringvnodefunction-options)
+    - [Options](#options)
+  - [`closeAll()`](#closeall)
+- [🔖 TODO:](#%f0%9f%94%96-todo)
+- [🤝 Contributing](#%f0%9f%a4%9d-contributing)
+- [❤️ Support this project](#%e2%9d%a4%ef%b8%8f-support-this-project)
+- [Contributors ✨](#contributors-%e2%9c%a8)
 
 ### 🥳 Breadstick Starters
 Here are a few Codesandbox starters you can use to get started with Breadstick in your Vue or Nuxt App.
@@ -40,21 +53,24 @@ Install `breadstick` and its peer dependency, `animejs`, using yarn or npm.
 ```bash
 npm install breadstick animejs --save
 ```
+
 You can then register `BreadstickBakery` as a Vue plugin.
 ```js
 import Vue from 'vue'
 import { BreadstickBakery } from 'breadstick'
-import "breadstick/dist/breadstick.css";
 
 // This exposes `this.$breadstick` in your Vue template.
 Vue.use(BreadstickBakery)
 ```
 
+#### Installing with Nuxt
+After installing Breadstick, we import it and register it as a **client-side plugin**. This is because Breadstick it makes use of some DOM APIs. Code is similiar to the Vue plugin shown above.
+
 
 <a id="examples"></a>
 
 ### 🤖 Examples
-Breadstick can be used to render different types of notifications out of the box. You can render simple string notifications as well as custom styled notifications. This makes it really convenient 
+Breadstick can be used to render different types of notifications out of the box. You can render simple string notifications as well as custom styled notifications. This makes it really convenient.
 
 <a id="basic-usage"></a>
 
@@ -191,6 +207,8 @@ this.$breadstick.notify(({ h, onClose }) => {
   return h('div', 'My custom notification')
 })
 ```
+<a href="options"></a>
+
 #### Options
 Option | Type | Default | Values
 --- | --- | --- | --
@@ -203,15 +221,21 @@ Option | Type | Default | Values
  - Type: `Function`
 The `closeAll` method closes all toast notifications that are visible in the UI at the time of invocation. Nice a succinct way to dismiss all notifications
 
-### 🔖 TODO:
+<a id="todo"></a>
+
+## 🔖 TODO:
 Breadstick still has a few more features coming up. These include:
 - [ ] Indefinitely display toast notification
 - [ ] Allow sharing of same application Vue instance.
 
-#### 🤝 Contributing
+<a id="contributing"></a>
+
+## 🤝 Contributing
 Here's our contribution [guide.](./.github/CONTRIBUTING.md)
 
-#### ❤️ Support this project
+<a id="support"></a>
+
+## ❤️ Support this project
 If you like this project, please consider supporting it by buying my a coffee!
 
 <a style="background: #FF813F; color: white; padding: 10px 20px; border-radius: 3px; display: inline-flex;" target="_blank" href="https://www.buymeacoffee.com/dIlWof6x5">
