@@ -23,7 +23,7 @@ module.exports = {
     ],
     repo: 'codebender828/breadstick',
     docsDir: 'docs',
-    docsBranch: 'dev/docs',
+    docsBranch: 'dev',
     sidebar: [
       {
         title: 'Guide',
