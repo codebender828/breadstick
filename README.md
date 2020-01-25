@@ -113,11 +113,6 @@ Breadstick still has a few more features coming up. These include:
 - [ ] Replace internal portal with `PortalVue`
 - [ ] Create docs site with Vuepress
 
-
-### 🦑 Contributors
-- [Jonathan Bakebwa](https://twitter.com/codebender828)
-- This could be you :)
-
 #### 🤝 Contributing
 Here's our contribution [guide.](./.github/CONTRIBUTING.md)
 
