@@ -1,5 +1,5 @@
-import Toaster from '../components/Breadstick'
-const breadstick = new Toaster()
+import Breadstick from '../components/Breadstick'
+const breadstick = new Breadstick()
 
 /**
  * Breadstick plugin

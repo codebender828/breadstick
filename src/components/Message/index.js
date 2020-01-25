@@ -54,11 +54,17 @@ const Message = {
     renderMessage (h) {
       // The returned message is a string
       if (typeof this.message === 'string') {
-        return (
-          <Alert id={this.id} clear={this.onMouseEnter} reset={this.onMouseLeave} title={this.message} close={this.close}>
-            {this.message}
-          </Alert>
-        )
+        return h(Alert, {
+          attrs: {
+            id: this.id
+          },
+          props: {
+            clear: this.onMouseEnter,
+            reset: this.onMouseLeave,
+            title: this.message,
+            close: this.close
+          }
+        }, this.message)
       }
 
       // The returned message is a function with Vue's render function callback
@@ -93,4 +99,5 @@ const Message = {
     }, [this.renderMessage(h)])
   }
 }
+
 export default Message

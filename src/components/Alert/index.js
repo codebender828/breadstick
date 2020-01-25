@@ -9,20 +9,28 @@ export const Alert = {
     clear: Function,
     reset: Function
   },
-  render () {
-    const clear = this.clear
-    const reset = this.reset
-    return (
-      <span id={this.id} vOn:mouseenter={clear} vOn:mouseleave={reset} class="Breadstick__alert">
-        {typeof title === 'string' ? (
-          <div class="Breadstick__alert_text">{this.title}</div>
-        ) : (
-          this.title
-        )}
-        {!this.title && this.$slots.default}
-        {this.close && <Close close={this.close} />}
-      </span>
-    )
+  render (h) {
+    return h('span', {
+      class: ['Breadstick__alert'],
+      attrs: {
+        id: this.id
+      },
+      on: {
+        mouseenter: this.clear,
+        mouseleave: this.reset
+      }
+    }, [
+      typeof title === 'string'
+        ? h('div', {
+          class: ['Breadstick__alert_text']
+        }, this.title) : this.title,
+      !this.title && this.$slots.default,
+      this.close && h(Close, {
+        props: {
+          close: this.close
+        }
+      })
+    ])
   }
 
 }
@@ -35,16 +43,16 @@ export const Close = {
       default: () => null
     }
   },
-  render () {
-    return (
-      <button
-        class="Breadstick__alert_close"
-        type="button"
-        aria-label="Close"
-        onClick={this.close}
-      >
-        <span aria-hidden="true">×</span>
-      </button>
-    )
+  render (h) {
+    return h('button', {
+      class: ['Breadstick__alert_close'],
+      attrs: {
+        type: 'button',
+        'aria-label': this.close
+      },
+      on: {
+        click: this.close
+      }
+    }, [h('span', { attrs: { 'aria-hidden': true } }, '×')])
   }
 }

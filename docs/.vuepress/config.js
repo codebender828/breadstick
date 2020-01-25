@@ -1,35 +1,67 @@
 module.exports = {
-  title: 'Breadstick', // Title of the website
-  // appears in the meta tag and as a subtitle
+  title: 'Breadstick',
   description: "A simple but flexible implementation of toast style notifications for Vue.js.",
-  // Google Analytics tracking code
   ga: "Analytics code",
   themeConfig: {
-      nav: [
-          // links that will appear in the top navbar
-          { text: 'Guide', link: '/guide/getting-started.html' },
-          { text: 'Examples', link: '/examples/' },
-          // external link
-          { text: 'Github', link: 'https://github.com/codebender828/breadstick' },
-      ],
-      sidebar: [
-          // These links will appear in the sidebar
-          // Create heading groups
-          {
-              title: 'Guide',
-              collapsable: false,
-              children: [
-                  // These are pages we'll add later
-                  '/guide/getting-started',
-              ]
-          },
-          {
-            title: 'Examples',
-            collapsable: false,
-            children: [
-              '/examples/'
-            ]
-          }
-      ]
+    nav: [
+      {
+        text: 'Guide',
+        link: '/guide/getting-started.html'
+      },
+      {
+        text: 'API',
+        link: '/api/'
+      },
+      {
+        text: 'Examples',
+        link: '/examples/'
+      },
+      {
+        text: 'Github',
+        link: 'https://github.com/codebender828/breadstick'
+      },
+    ],
+    repo: 'codebender828/breadstick',
+    docsDir: 'docs',
+    docsBranch: 'dev',
+    sidebar: [
+      {
+        title: 'Guide',
+        collapsable: false,
+        children: [
+          '/guide/getting-started',
+        ]
+      },
+      {
+        title: 'Examples',
+        collapsable: false,
+        children: [
+          '/examples/'
+        ]
+      },
+      {
+        title: 'Advanced Usage',
+        collapsable: false,
+        children: [
+          '/advanced/'
+        ]
+      },
+      {
+        title: 'API',
+        collapsable: false,
+        children: [
+          '/api/'
+        ]
+      },
+      {
+        title: '❤️ Support',
+        collapsable: false,
+        children: [
+          '/support/'
+        ]
+      }
+    ],
+    editLinks: true,
+    editLinkText: 'Help us improve this page!'
   }
 }

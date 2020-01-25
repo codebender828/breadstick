@@ -1,7 +1,9 @@
 module.exports = {
   presets: [
-    '@vue/cli-plugin-babel/preset',
-    ['@babel/preset-env', { 'modules': false }]
+    '@babel/preset-env'
   ],
-  'plugins': ['@babel/external-helpers', 'transform-class-properties']
+  plugins: [
+    '@babel/plugin-proposal-class-properties'
+  ],
+  exclude: ['node_modules']
 }
