@@ -1,6 +1,6 @@
 {
   "name": "breadstick",
-  "version": "0.2.8",
+  "version": "0.2.10",
   "private": false,
   "main": "dist/index.js",
   "module": "dist/es/index.js",
@@ -26,16 +26,14 @@
     "url": "https://github.com/codebender828/breadstick"
   },
   "scripts": {
-    "babel": "yarn babel:cjs && yarn babel:es",
-    "babel:cjs": "cross-env NODE_ENV=production BABEL_ENV=cjs babel --root-mode upward src -d dist --copy-files",
-    "babel:es": "cross-env NODE_ENV=production BABEL_ENV=es babel --root-mode upward src -d dist/es --copy-files",
-    "dev": "rollup -c --watch",
-    "build": "rollup -c && rollup -c --environment MINIFY",
-    "build:npm": "vue-cli-service build --target lib --name breadstick src/index.js",
+    "dev": "watch 'yarn build:es' src",
+    "build": "yarn build:cjs && yarn build:es",
+    "build:cjs": "cross-env NODE_ENV=production BABEL_ENV=cjs babel --root-mode upward src -d dist --copy-files",
+    "build:es": "cross-env NODE_ENV=production BABEL_ENV=es babel --root-mode upward src -d dist/es --copy-files",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "test:unit": "vue-cli-service test:unit --passWithNoTests",
-    "serve": "vue-cli-service serve",
+    "test": "jest --passWithNoTests",
+    "test:watch": "jest --passWithNoTests --watchAll",
     "lint": "vue-cli-service lint"
   },
   "peerDependencies": {
@@ -44,7 +42,7 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.8.3",
-    "@babel/plugin-external-helpers": "^7.7.4",
+    "@babel/core": "^7.8.3",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/plugin-syntax-jsx": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
@@ -57,6 +55,7 @@
     "@vue/eslint-config-standard": "^4.0.0",
     "@vue/test-utils": "1.0.0-beta.29",
     "babel-eslint": "^10.0.3",
+    "babel-jest": "^25.1.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "breadstick": "^0.1.21",
     "core-js": "^3.3.2",
@@ -64,6 +63,7 @@
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "husky": "^3.0.9",
+    "jest": "^25.1.0",
     "lint-staged": "^9.4.2",
     "rollup": "^1.27.12",
     "rollup-plugin-babel": "^4.3.3",
@@ -74,7 +74,8 @@
     "rollup-plugin-uglify": "^6.0.4",
     "vue": "^2.6.11",
     "vue-template-compiler": "^2.6.11",
-    "vuepress": "^1.2.0"
+    "vuepress": "^1.2.0",
+    "watch": "^1.0.2"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"

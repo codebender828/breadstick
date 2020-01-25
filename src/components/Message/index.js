@@ -99,4 +99,5 @@ const Message = {
     }, [this.renderMessage(h)])
   }
 }
+
 export default Message
