@@ -143,7 +143,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://jbakebwa.dev"><img src="https://avatars2.githubusercontent.com/u/21237954?v=4" width="100px;" alt=""/><br /><sub><b>Jonathan Bakebwa</b></sub></a><br /><a href="https://github.com/codebender828/breadstick/commits?author=codebender828" title="Code">💻</a></td>
+    <td align="center"><a href="https://jbakebwa.dev"><img src="https://avatars2.githubusercontent.com/u/21237954?v=4" width="100px;" alt=""/><br /><sub><b>Jonathan Bakebwa</b></sub></a><br /><a href="https://github.com/codebender828/breadstick/commits?author=codebender828" title="Code">💻</a> <a href="https://github.com/codebender828/breadstick/commits?author=codebender828" title="Documentation">📖</a></td>
   </tr>
 </table>
 
