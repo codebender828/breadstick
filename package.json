@@ -2,9 +2,8 @@
   "name": "breadstick",
   "version": "0.2.4",
   "private": false,
-  "main": "dist/cjs/index.js",
+  "main": "dist/index.js",
   "module": "dist/es/index.js",
-  "browser": "dist/esm/index.js",
   "unpkg": "dist/umd/index.js",
   "jsdelivr": "dist/umd/index.js",
   "author": {
@@ -27,6 +26,9 @@
     "url": "https://github.com/codebender828/breadstick"
   },
   "scripts": {
+    "babel": "yarn babel:cjs && yarn babel:es",
+    "babel:cjs": "cross-env NODE_ENV=production BABEL_ENV=cjs babel --root-mode upward src -d dist",
+    "babel:es": "cross-env NODE_ENV=production BABEL_ENV=es babel --root-mode upward src -d dist/es",
     "dev": "rollup -c --watch",
     "build": "rollup -c && rollup -c --environment MINIFY",
     "build:npm": "vue-cli-service build --target lib --name breadstick src/index.js",
@@ -37,11 +39,15 @@
     "lint": "vue-cli-service lint"
   },
   "peerDependencies": {
-    "vue": "^2.6.10",
-    "animejs": "^3.1.0"
+    "animejs": "^3.1.0",
+    "vue": "^2.6.10"
   },
   "devDependencies": {
+    "@babel/cli": "^7.8.3",
     "@babel/plugin-external-helpers": "^7.7.4",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-syntax-jsx": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
     "@vue/cli-plugin-babel": "^4.0.0",
@@ -52,9 +58,9 @@
     "@vue/test-utils": "1.0.0-beta.29",
     "babel-eslint": "^10.0.3",
     "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-preset-env": "^1.7.0",
     "breadstick": "^0.1.21",
     "core-js": "^3.3.2",
+    "cross-env": "^6.0.3",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "husky": "^3.0.9",
