@@ -2,6 +2,7 @@
   "name": "breadstick",
   "version": "0.2.12",
   "private": false,
+  "sideEffects": false,
   "main": "dist/index.js",
   "module": "dist/es/index.js",
   "unpkg": "dist/umd/index.js",
