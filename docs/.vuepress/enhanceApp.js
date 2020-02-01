@@ -15,6 +15,6 @@ export default ({ router }) => {
 
     router.afterEach(to => {
       (process.env.NODE_ENV !== 'production') && console.log('Route changed to', to)
-      mixpanel.track('Route Viewed', { 'page': to.path })
+      (process.env.NODE_ENV === 'production') && mixpanel.track('Route Viewed', { 'page': to.path })
     })
 }
