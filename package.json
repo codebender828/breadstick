@@ -1,6 +1,6 @@
 {
   "name": "breadstick",
-  "version": "0.2.10",
+  "version": "0.2.11",
   "private": false,
   "main": "dist/index.js",
   "module": "dist/es/index.js",
