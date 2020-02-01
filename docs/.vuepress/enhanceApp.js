@@ -14,7 +14,7 @@ export default ({ Vue, router, ...rest }) => {
     mixpanel.init(MIXPANEL_TOKEN)
 
     router.afterEach(to => {
-      (process.env.NODE_ENV !== 'production') && console.log('Route changes', { to })
+      (process.env.NODE_ENV !== 'production') && console.log('Route changed to', to)
       mixpanel.track('Page Viewed', { 'page': to.path })
     })
 }
