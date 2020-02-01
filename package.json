@@ -12,6 +12,7 @@
   },
   "license": "MIT",
   "keywords": [
+    "front-end",
     "vue",
     "notifications",
     "toast",
