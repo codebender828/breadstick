@@ -1,7 +1,6 @@
 module.exports = {
   title: 'Breadstick',
   description: "A simple but flexible implementation of toast style notifications for Vue.js.",
-  ga: "Analytics code",
   themeConfig: {
     nav: [
       {
