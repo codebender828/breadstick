@@ -1,5 +1,6 @@
 ---
   title: Using Breadstick
+  name: Using Breadstick
 ---
 
 ## 🥳 Starters
