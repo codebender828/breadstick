@@ -18,10 +18,15 @@
     "notifications",
     "toast",
     "snackbar",
-    "breadstick"
+    "breadstick",
+    "stacking",
+    "position",
+    "dismissible",
+    "functional"
   ],
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "repository": {
     "type": "git",
