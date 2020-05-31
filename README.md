@@ -22,27 +22,27 @@
 - **JS agnostic notifications.** Breadstick can be incrementally adopted to your application since it uses the already progressive Vue.js under the hood.
 
 ## 📚 Table of Contents
-- [📚 Table of Contents](#%f0%9f%93%9a-table-of-contents)
-  - [🥳 Breadstick Starters](#%f0%9f%a5%b3-breadstick-starters)
-  - [⚡️ Installation](#%e2%9a%a1%ef%b8%8f-installation)
+  - [🥳 Breadstick Starters](#starters)
+  - [⚡️ Installation](#installation)
     - [Installing with Nuxt](#installing-with-nuxt)
-  - [🤖 Examples](#%f0%9f%a4%96-examples)
-    - [🍊 Basic usage](#%f0%9f%8d%8a-basic-usage)
-    - [📚 Using different positions](#%f0%9f%93%9a-using-different-positions)
-    - [🏠 Using custom element](#%f0%9f%8f%a0-using-custom-element)
-    - [📭 Close all notifications](#%f0%9f%93%ad-close-all-notifications)
-  - [🏗 Advanced usage](#%f0%9f%8f%97-advanced-usage)
-    - [🌮 With Vue's `render` function callback](#%f0%9f%8c%ae-with-vues-render-function-callback)
-    - [🚚 With JSX](#%f0%9f%9a%9a-with-jsx)
-- [💼 API](#%f0%9f%92%bc-api)
-  - [`notify(String|VNode|Function, options)`](#notifystringvnodefunction-options)
+  - [🤖 Examples](#examples)
+    - [🍊 Basic usage](#basic-usage)
+    - [📚 Using different positions](#different-positions)
+    - [🏠 Using custom element](#custom-notifications)
+    - [📭 Close all notifications](#close-all)
+  - [🏗 Advanced usage](#advanced)
+    - [🌮 With Vue's `render` function callback](#render-callback)
+    - [🚚 With JSX](#with-jsx)
+- [💼 API](#api)
+  - [`notify(String|VNode|Function, options)`](#notify)
     - [Options](#options)
-  - [`closeAll()`](#closeall)
-- [🔖 TODO:](#%f0%9f%94%96-todo)
-- [🤝 Contributing](#%f0%9f%a4%9d-contributing)
-- [❤️ Support this project](#%e2%9d%a4%ef%b8%8f-support-this-project)
-- [Contributors ✨](#contributors-%e2%9c%a8)
+  - [`closeAll()`](#close-all)
+- [🔖 TODO:](#todo)
+- [🤝 Contributing](#contributing)
+- [❤️ Support this project](#support)
+- [Contributors ✨](#contributors)
 
+<a id="starters"></a>
 ### 🥳 Breadstick Starters
 Here are a few Codesandbox starters you can use to get started with Breadstick in your Vue or Nuxt App.
 - **Vue.js Starter**: http://bit.ly/breadstick-vue
@@ -251,6 +251,7 @@ If you like this project, please consider supporting it by buying my a coffee!
   Made with ❤️ by <a target="_blank" href="https://twitter.com/codebender828">Jonathan Bakebwa 🇺🇬</a>
 </center>
 
+<a id="contributors"></a>
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
