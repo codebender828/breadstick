@@ -16,10 +16,10 @@
 <h4 align="center"><a href="https://breadstick.now.sh/" target="_blank">Demo</a></h4>
 
 ### 🌟 Features
-- **An imperative API.** This means that you don't need to set component state or render elements to trigger notifications. Instead, just call a function. This makes it very user friendly for component library authors.
-- **Render whatever you want.** Utilize the render callback to create entirely custom notifications.
+- **Functional Stacking, Positioning, Timing & Dismissal API.** Breadstick exposes a function that allows you to to control the stacking, positioning and dismissal of authored toast style notifications.
+- **Render whatever you want.** Utilize the render callback to create beautiful custom notifications.
 - **Functional default styles.** Import the provided css for some nice styling defaults or write your own styles.
-- **JS agnostic notifications.** Breadstick can be incrementally adopted to your application since it uses the already progressive Vue.js under the hood.
+- **Vue framework-agnostic notification.** Breadstick is un-opininated about the styling of your Vue toast notifications. It's main strengths are in handling the business logic of stacking, positioning, timing & dismissal of your toast notifications.
 
 ## 📚 Table of Contents
   - [🥳 Breadstick Starters](#starters)
@@ -132,7 +132,7 @@ This is particularly useful if you want use custom themed elements or Vue compon
 
 This is particularly useful for building your own themed notification component library.
 
-[Here are some examples](#) of how to use breadstick to render you own custom element.
+[Here is an advanced examples](https://github.com/codebender828/breadstick-examples) of how to use breadstick to render you own authored toast notifications.
 
 <a id="render-callback"></a>
 
